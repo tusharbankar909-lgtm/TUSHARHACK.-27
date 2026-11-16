@@ -1077,7 +1077,7 @@ async function poll(){
 }
 
 // Main app access gate
-const APP_ACCESS_KEY='AURA-OF-SHAN';
+const APP_ACCESS_KEY='TUSHARGODXVIP';
 function unlockApp(){
  const input=$('appAccessKey'),message=$('appKeyMessage');
  if(input.value===APP_ACCESS_KEY){document.body.classList.add('app-unlocked');message.textContent='';input.value='';}
@@ -1087,7 +1087,7 @@ $('appUnlockBtn').addEventListener('click',unlockApp);
 $('appAccessKey').addEventListener('keydown',e=>{if(e.key==='Enter')unlockApp();});
 
 // Admin panel access gate
-const ADMIN_ACCESS_KEY='SHAN-PVT-910';
+const ADMIN_ACCESS_KEY='TUSHARGODX09';
 const adminToggle=$('adminToggle'), adminBox=$('adminBox'), adminKey=$('adminKey');
 adminToggle.addEventListener('click',()=>{const opening=!adminBox.classList.contains('open');adminBox.classList.toggle('open',opening);adminToggle.setAttribute('aria-expanded',String(opening));if(opening)adminKey.focus();});
 $('adminHide').addEventListener('click',()=>{adminBox.classList.remove('open');adminToggle.setAttribute('aria-expanded','false');});
