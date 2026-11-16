@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>𝗧𝗨𝗦𝗛𝗔𝗥-𝗚𝗢𝗗𝗫</title>
+<style>
+:root{--bg:#070b14;--panel:#101827;--panel2:#0b1220;--line:#24334b;--text:#e8f0ff;--muted:#8da0bd;--cyan:#52e4ff;--green:#43f2a1;--red:#ff667e;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#14233b 0,#070b14 58%);color:var(--text);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:18px 12px 36px}.head{border:1px solid var(--line);background:linear-gradient(135deg,#111d31,#0b1220);border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 12px 40px #0005}
+.brand{font-weight:950;font-size:clamp(22px,5vw,34px);letter-spacing:1px}.brand span{color:var(--cyan)}.sub{color:var(--muted);margin-top:5px}.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.pill{border:1px solid #2a405e;border-radius:999px;padding:7px 10px;color:#c6d8f5;background:#0b1423;font-size:12px}
+.notice{margin:12px 0 18px;padding:11px 13px;border-radius:12px;border:1px solid #6a5224;background:#211b10;color:#ffe5a0;font-size:12px}.sure-shot{margin-top:10px;padding:10px 12px;border-radius:11px;border:1px solid #8b6b22;background:linear-gradient(90deg,#30230a,#1b190f);color:#ffe18a;font-weight:950;letter-spacing:.7px;text-align:center;box-shadow:0 0 18px #ffd16622}.sure-shot small{display:block;color:#cbbd91;font-size:10px;font-weight:600;letter-spacing:0;margin-top:3px}.sure-shot[hidden]{display:none}
+.topgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px}.stat small{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:20px;display:block;margin-top:3px}
+.engines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:linear-gradient(160deg,#111a2a,#0b1220);border:1px solid var(--line);border-radius:16px;padding:15px;min-width:0;position:relative;overflow:hidden}.card.l4{border-color:#ff667e;box-shadow:0 0 0 1px #ff667e30,0 0 22px #ff667e16}.cardhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.card h2{font-size:16px;margin:0 0 3px}.source{color:var(--muted);font-size:11px}.level{white-space:nowrap;border:1px solid #2b4260;background:#0a1424;padding:6px 9px;border-radius:9px;font-weight:850;font-size:11px}.level.l2{color:var(--gold)}.level.l3{color:#ffad66}.level.l4{color:var(--red);border-color:#783746}
+.period{margin-top:13px;color:var(--muted);font-size:11px}.signalrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:7px 0 12px}.signal{font-size:29px;font-weight:950;letter-spacing:1px}.signal.BIG{color:#ff7c93}.signal.SMALL{color:#49e9bb}.signal.RED{color:#ff667e}.signal.GREEN{color:#43f2a1}.num{font-size:18px;font-weight:900;color:var(--cyan);text-align:right;min-width:112px}.num small{display:block;font-size:10px;color:var(--muted);font-weight:600}.number-picks{display:flex;gap:8px;margin:8px 0 10px}.number-pick{flex:1;border:1px solid #25415c;background:#081321;border-radius:10px;padding:9px 10px;text-align:center}.number-pick small{display:block;color:var(--muted);font-size:10px;font-weight:700}.number-pick b{display:block;color:var(--cyan);font-size:23px;line-height:1.2}.main-picks{margin-top:8px}.betrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mini{background:#080f1c;border:1px solid #1d2c43;border-radius:10px;padding:9px}.mini small{display:block;color:var(--muted);font-size:10px}.mini b{font-size:15px}.reason{color:#b8c8e0;font-size:11px;margin-top:10px;min-height:29px}.track{height:5px;background:#1b2940;border-radius:9px;overflow:hidden;margin-top:12px}.track span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .25s}.l4 .track span{background:var(--red)}
+.sectiontitle{font-size:17px;margin:22px 0 10px}.mainmeta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.mainmeta .mini b{font-size:15px}.historywrap{margin-top:16px}.historytable{min-width:0;table-layout:fixed;width:100%}.jackpot{color:var(--gold);font-weight:900}.history-empty{padding:16px;color:var(--muted);text-align:center}.tablewrap{overflow:visible;border:1px solid var(--line);border-radius:13px;background:var(--panel);width:100%}table{width:100%;border-collapse:collapse;min-width:0;table-layout:fixed}th,td{text-align:left;padding:10px 7px;border-bottom:1px solid #1b2940;font-size:12px;overflow-wrap:anywhere}th{color:#9bb0cf;background:#0b1423}td{color:#d8e5f9}.win{color:var(--green);font-weight:800}.loss{color:var(--red);font-weight:800}.pending{color:var(--gold);font-weight:800}.footer{margin-top:15px;color:var(--muted);font-size:11px;text-align:center}
+@media(max-width:720px){.engines{grid-template-columns:1fr}.topgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:10px}.stat strong{font-size:17px}.card{padding:13px}.historytable th,.historytable td{padding:8px 4px;font-size:10px}.historytable th:nth-child(1),.historytable td:nth-child(1){width:25%}.historytable th:nth-child(2),.historytable td:nth-child(2){width:25%}.historytable th:nth-child(3),.historytable td:nth-child(3){width:22%}.historytable th:nth-child(4),.historytable td:nth-child(4){width:28%}}
+
+.admin-entry{margin-top:24px;text-align:center;padding:14px;border:1px solid var(--line);border-radius:14px;background:#0b1220}
+.admin-toggle{border:1px solid #2a405e;background:linear-gradient(135deg,#15243a,#0b1423);color:var(--cyan);font-weight:900;letter-spacing:.6px;padding:11px 18px;border-radius:10px;cursor:pointer}
+.admin-box{display:none;margin-top:12px;text-align:left;border:1px solid #2a405e;border-radius:12px;padding:14px;background:#101827}
+.admin-box.open{display:block}.admin-box h3{margin:0 0 10px;font-size:16px}.admin-input{width:100%;padding:11px;border:1px solid #2a405e;border-radius:9px;background:#070b14;color:var(--text);font:inherit;margin:5px 0 10px;outline:none}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}.admin-btn{border:1px solid #2a405e;border-radius:9px;padding:9px 12px;background:#0b1423;color:var(--text);font-weight:800;cursor:pointer}.admin-message{font-size:12px;margin-top:8px;color:var(--red)}.admin-message.ok{color:var(--green)}.admin-content{display:none;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.admin-content.show{display:block}.admin-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.admin-stats .mini{min-width:0}.admin-hacks-wrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:10px}.admin-hacks-table{width:100%;min-width:650px;border-collapse:collapse;table-layout:auto}.admin-hacks-table th,.admin-hacks-table td{padding:9px 7px;font-size:11px;white-space:nowrap}.admin-hacks-table td:first-child{font-weight:800;color:#fff}.admin-hacks-table .side-big{color:var(--green);font-weight:900}.admin-hacks-table .side-small{color:#70a7ff;font-weight:900}.admin-hacks-table .admin-wait{color:var(--gold)}
+
+
+.app-key-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at top,#14233b 0,#070b14 65%)}
+.app-key-card{width:min(420px,100%);border:1px solid #2a405e;border-radius:18px;padding:24px;background:linear-gradient(160deg,#111d31,#0b1220);box-shadow:0 18px 55px #0008;text-align:center}
+.app-key-card h1{font-size:24px;margin:0 0 7px;letter-spacing:1px}.app-key-card p{color:var(--muted);font-size:12px;margin:0 0 16px}.app-key-card input{width:100%;padding:12px;border:1px solid #2a405e;border-radius:9px;background:#070b14;color:var(--text);font:inherit;margin-bottom:10px;outline:none}.app-key-card button{width:100%;padding:12px;border:1px solid #2a405e;border-radius:9px;background:linear-gradient(135deg,#15243a,#0b1423);color:var(--cyan);font-weight:900;cursor:pointer}.app-key-msg{min-height:18px;color:var(--red);font-size:12px;margin-top:10px}body:not(.app-unlocked) .wrap{display:none}body.app-unlocked .app-key-gate{display:none}
+
+/* Reference CSS imported from TUSHAR XX-90 */
+
+        :root { 
+            --neon: #00ff41; 
+            --danger: #ff003c; 
+            --gold: #ffea00; 
+            --bg: #050505;
+            --bg-url: 'https://i.ibb.co/93S6N5kC/0359df0fc5637f711572e71d66321423.jpg';
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+            margin: 0; 
+            user-select: none; 
+            overflow-x: hidden; 
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/93S6N5kC/0359df0fc5637f711572e71d66321423.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .bg-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5,5,5,0.5);
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+        }
+        
+        .header-container { text-align: center; padding: 20px 10px 10px; }
+        
+        .zigzag-name {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            animation: rgbGlitch 2s infinite;
+            text-shadow: 
+                0 0 10px rgba(255,0,0,0.8),
+                0 0 20px rgba(0,255,0,0.8),
+                0 0 30px rgba(0,0,255,0.8),
+                0 0 40px rgba(255,255,0,0.5);
+        }
+        
+        @keyframes rgbGlitch {
+            0% { text-shadow: 2px 0 red, -2px 0 cyan, 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(0,255,0,0.4), 0 0 60px rgba(0,0,255,0.3); transform: skew(0deg); }
+            10% { text-shadow: -3px 0 lime, 3px 0 magenta, 0 0 30px rgba(255,255,0,0.6), 0 0 50px rgba(255,0,255,0.4); transform: skew(2deg); }
+            20% { text-shadow: 4px 0 blue, -4px 0 yellow, 0 0 40px rgba(0,255,255,0.6), 0 0 60px rgba(255,0,0,0.4); transform: skew(-3deg); }
+            30% { text-shadow: -5px 0 red, 5px 0 lime, 0 0 50px rgba(255,0,255,0.6), 0 0 70px rgba(0,255,255,0.4); transform: skew(2deg); }
+            40% { text-shadow: 3px 0 cyan, -3px 0 red, 0 0 30px rgba(255,255,0,0.6), 0 0 60px rgba(0,255,0,0.4); transform: skew(-2deg); }
+            50% { text-shadow: -4px 0 magenta, 4px 0 cyan, 0 0 40px rgba(255,0,0,0.6), 0 0 50px rgba(0,0,255,0.4); transform: skew(0deg); }
+            60% { text-shadow: 5px 0 yellow, -5px 0 blue, 0 0 50px rgba(0,255,255,0.6), 0 0 70px rgba(255,255,0,0.4); transform: skew(-2deg); }
+            70% { text-shadow: -2px 0 red, 2px 0 lime, 0 0 20px rgba(255,0,255,0.6), 0 0 40px rgba(0,255,0,0.4); transform: skew(2deg); }
+            80% { text-shadow: 6px 0 cyan, -6px 0 magenta, 0 0 60px rgba(255,255,0,0.6), 0 0 80px rgba(255,0,0,0.4); transform: skew(-1deg); }
+            90% { text-shadow: -3px 0 yellow, 3px 0 blue, 0 0 30px rgba(0,255,255,0.6), 0 0 50px rgba(255,0,255,0.4); transform: skew(1deg); }
+            100% { text-shadow: 2px 0 red, -2px 0 cyan, 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(0,255,0,0.4), 0 0 60px rgba(0,0,255,0.3); transform: skew(0deg); }
+        }
+        
+        .zigzag-name::before,
+        .zigzag-name::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+        }
+        
+        .zigzag-name::before {
+            color: #ff00ff;
+            animation: glitchBefore 2s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            opacity: 0.7;
+        }
+        
+        .zigzag-name::after {
+            color: #00ffff;
+            animation: glitchAfter 2s infinite;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+            opacity: 0.7;
+        }
+        
+        @keyframes glitchBefore {
+            0%, 100% { transform: translate(0); opacity: 0.7; }
+            20% { transform: translate(-3px, 2px); opacity: 0.9; }
+            40% { transform: translate(4px, -2px); opacity: 0.5; }
+            60% { transform: translate(-5px, 3px); opacity: 0.8; }
+            80% { transform: translate(3px, -3px); opacity: 0.6; }
+        }
+        
+        @keyframes glitchAfter {
+            0%, 100% { transform: translate(0); opacity: 0.7; }
+            20% { transform: translate(3px, -2px); opacity: 0.5; }
+            40% { transform: translate(-4px, 2px); opacity: 0.9; }
+            60% { transform: translate(5px, -3px); opacity: 0.6; }
+            80% { transform: translate(-3px, 3px); opacity: 0.8; }
+        }
+        
+        .glass-box { 
+            margin: 15px auto; 
+            background: rgba(5,5,5,0.75); 
+            border: 1px solid rgba(0,255,65,0.15); 
+            border-radius: 25px; 
+            padding: 22px 20px; 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center; 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://i.ibb.co/gZQLK5wV/414670d7424959df3aa7186417ba0a99.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+            border-radius: 25px;
+        }
+        
+        .glass-box > * { position: relative; z-index: 1; }
+        
+        input { 
+            width: 90%; 
+            padding: 14px; 
+            background: rgba(0,0,0,0.6); 
+            border: 1px solid #333; 
+            border-radius: 12px; 
+            color: var(--neon); 
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px; 
+            font-weight: 600;
+            margin: 12px 0; 
+            outline: none; 
+            text-align: center; 
+            letter-spacing: 1px;
+        }
+        input::placeholder { color: #555; font-weight: 400; }
+        
+        .btn-main { 
+            width: 100%; 
+            padding: 14px; 
+            background: linear-gradient(45deg, var(--neon), #008f11); 
+            border: none; 
+            border-radius: 12px; 
+            color: #000; 
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            cursor: pointer; 
+            transition: 0.2s;
+            font-size: 13px;
+        }
+        .btn-main:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(0,255,65,0.3); }
+        
+        .pred-val { 
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 48px; 
+            font-weight: 900; 
+            margin: 8px 0; 
+            text-shadow: 0 0 30px var(--neon), 0 0 60px rgba(0,255,65,0.2);
+            letter-spacing: 3px;
+        }
+        
+        table { 
+            width: 100%; 
+            margin-top: 16px; 
+            border-collapse: collapse; 
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px; 
+        }
+        th { 
+            color: #888; 
+            border-bottom: 1px solid #222; 
+            padding: 8px; 
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+        td { 
+            padding: 8px; 
+            border-bottom: 1px solid #111; 
+            text-align: center; 
+            vertical-align: middle; 
+            font-weight: 500;
+        }
+        
+        .win { color: var(--neon); font-weight: 700; text-shadow: 0 0 15px var(--neon); }
+        .loss { color: var(--danger); font-weight: 700; text-shadow: 0 0 15px var(--danger); }
+        .jack { color: #ffea00 !important; font-weight: 900; text-shadow: 0 0 20px #ffea00; }
+        
+        .footer-branding { 
+            margin-top: 20px; 
+            padding: 10px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .name-box { 
+            display: inline-block; 
+            padding: 8px 25px; 
+            border: 1px solid var(--neon); 
+            border-radius: 5px; 
+            color: var(--neon); 
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            cursor: pointer; 
+            background: rgba(0, 255, 65, 0.05); 
+            font-size: 11px;
+            transition: 0.2s;
+        }
+        .name-box:hover {
+            background: rgba(0,255,65,0.1);
+            box-shadow: 0 0 20px rgba(0,255,65,0.1);
+        }
+        
+        .admin-modal { 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 90%; 
+            max-width: 350px; 
+            background: #000; 
+            border: 2px solid var(--gold); 
+            border-radius: 20px; 
+            padding: 25px 20px; 
+            z-index: 1000; 
+            font-family: 'Rajdhani', sans-serif;
+            box-shadow: 0 0 60px rgba(255,234,0,0.1);
+        }
+        .admin-modal h3 {
+            font-family: 'Cinzel Decorative', cursive;
+            color: var(--gold);
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .admin-modal input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 10px 0;
+            outline: none;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .admin-modal input:focus { border-color: var(--gold); }
+        .admin-modal select {
+            width: 100%;
+            padding: 14px;
+            background: #111;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 12px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .admin-modal .btn-gold {
+            width: 100%;
+            padding: 14px;
+            background: var(--gold);
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+        .admin-modal .btn-gold:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255,234,0,0.3); }
+        .admin-modal .key-output {
+            margin-top: 15px;
+            color: var(--neon);
+            font-size: 12px;
+            word-break: break-all;
+            text-align: center;
+            background: rgba(0,255,65,0.05);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,255,65,0.15);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+        }
+        .admin-modal .btn-cancel {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .admin-modal .btn-cancel:hover { background: #333; }
+        .admin-modal .pass-hint {
+            font-size: 11px;
+            color: #555;
+            text-align: center;
+            margin-top: 8px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .admin-modal .pass-hint span { color: #888; }
+        
+        .admin-modal .keygen-section { display: none; }
+        .admin-modal .keygen-section.active { display: block; }
+        .admin-modal .pass-section.hidden { display: none; }
+        
+        .overlay { 
+            position: fixed; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background:rgba(0,0,0,0.85); 
+            z-index:999; 
+            backdrop-filter: blur(5px); 
+        }
+        .hidden { display: none; }
+        
+        .num-img { width: 26px; height: 26px; vertical-align: middle; border-radius: 50%; background: #111; padding: 2px; border: 1px solid rgba(0,255,65,0.15); }
+        .num-img-lg { width: 48px; height: 48px; border-radius: 50%; background: #111; padding: 4px; border: 2px solid rgba(255,234,0,0.25); margin: 0 4px; transition: 0.3s; }
+        .num-img-lg:hover { transform: scale(1.1); border-color: var(--gold); }
+        
+        .num-display { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 6px 0 10px; }
+        .num-display .num-item { display: flex; flex-direction: column; align-items: center; }
+        .num-display .num-item .label { 
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 8px; 
+            color: #888; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .logout-btn { 
+            background: transparent; 
+            color: #444; 
+            border: none; 
+            margin-top: 12px; 
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 11px; 
+            font-weight: 600;
+            cursor: pointer; 
+            letter-spacing: 1.5px;
+            transition: 0.2s;
+        }
+        .logout-btn:hover { color: #888; }
+        
+        .period-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .login-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        
+        .error-msg {
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 24px;
+        }
+        .error-invalid { color: var(--danger); }
+        .error-expired { color: #ff8800; }
+        .error-success { color: var(--neon); }
+        
+        .flex-btns { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-cancel { background: #222; color: #fff; flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #444; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 600; }
+        .btn-ok { background: var(--gold); color: #000; flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer; font-family: 'Rajdhani', sans-serif; }
+        
+        .expiry-notice {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,0,0,0.9);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 0 30px rgba(255,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .expiry-notice.show { display: block; animation: slideDown 0.5s ease; }
+        @keyframes slideDown {
+            from { top: -50px; opacity: 0; }
+            to { top: 20px; opacity: 1; }
+        }
+        
+        /* Redirect Banner */
+        .redirect-banner {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #0088cc, #0066aa);
+            color: #fff;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            z-index: 9998;
+            box-shadow: 0 4px 30px rgba(0, 136, 204, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: bounceUp 0.6s ease;
+        }
+        .redirect-banner:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 40px rgba(0, 136, 204, 0.6);
+        }
+        .redirect-banner .icon {
+            font-size: 24px;
+        }
+        .redirect-banner .arrow {
+            font-size: 20px;
+            animation: pulseArrow 1.5s infinite;
+        }
+        @keyframes pulseArrow {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+        @keyframes bounceUp {
+            from { bottom: -80px; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+        .redirect-banner .close-btn {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .redirect-banner .close-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+    
+
+/* TUSHAR XX-90 visual theme applied to the existing dashboard structure */
+:root{--bg:#050505;--panel:rgba(5,5,5,.78);--panel2:rgba(5,5,5,.68);--line:rgba(0,255,65,.28);--text:#fff;--muted:#a4a4a4;--cyan:#00ff41;--green:#00ff41;--red:#ff003c;--gold:#ffea00;--neon:#00ff41;}
+html{min-height:100%;background:#050505}
+body{min-height:100vh;background:#050505 url('https://i.ibb.co/93S6N5kC/0359df0fc5637f711572e71d66321423.jpg') center/cover fixed no-repeat;color:#fff;font-family:'Rajdhani','Segoe UI',sans-serif;overflow-x:hidden}
+body:before{content:'';position:fixed;inset:0;background:rgba(5,5,5,.68);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:18px 14px 36px}
+.head,.card,.stat,.admin-entry,.admin-box,.app-key-card{background:rgba(5,5,5,.78)!important;border:1px solid rgba(0,255,65,.28)!important;border-radius:22px!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(0,0,0,.55),inset 0 0 22px rgba(0,255,65,.035)!important}
+.head{text-align:center;padding:22px 16px!important;margin-bottom:16px!important;position:relative;overflow:hidden}
+.brand{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,6vw,30px);font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#fff;text-shadow:0 0 10px rgba(255,0,0,.8),0 0 20px rgba(0,255,0,.8),0 0 30px rgba(0,0,255,.8);animation:xxGlitch 2s infinite}
+.brand span{color:var(--neon)}
+@keyframes xxGlitch{0%,100%{text-shadow:2px 0 red,-2px 0 cyan,0 0 20px #f004}25%{text-shadow:-3px 0 lime,3px 0 magenta,0 0 28px #ff0a}50%{text-shadow:4px 0 blue,-4px 0 yellow,0 0 32px #0ffa}75%{text-shadow:-4px 0 red,4px 0 lime,0 0 30px #f0fa}}
+.sub,.source,.period,.stat small,.reason,.footer{color:#aaa!important}
+.pill{border:1px solid rgba(0,255,65,.45)!important;background:rgba(0,255,65,.06)!important;color:#baffc8!important;border-radius:5px!important;letter-spacing:.5px}
+.notice{border:1px solid rgba(255,234,0,.5)!important;background:rgba(30,25,0,.75)!important;color:#ffea80!important;border-radius:12px}
+.topgrid{gap:8px}.stat{padding:12px 9px!important;text-align:center}.stat strong{color:var(--neon);text-shadow:0 0 12px rgba(0,255,65,.45)}
+.engines{grid-template-columns:1fr!important;gap:14px}
+.card{padding:17px!important;position:relative;overflow:hidden}
+.card:before{content:'';position:absolute;inset:0;background:url('https://i.ibb.co/gZQLK5wV/414670d7424959df3aa7186417ba0a99.jpg') center/cover;opacity:.07;pointer-events:none}
+.card>*{position:relative;z-index:1}
+.card h2,.sectiontitle{font-family:'Cinzel Decorative',serif;color:#fff;letter-spacing:1px;text-shadow:0 0 12px rgba(0,255,65,.22)}
+.level,.number-pick,.mini{background:rgba(0,0,0,.65)!important;border:1px solid rgba(0,255,65,.28)!important;border-radius:12px!important}
+.level{color:var(--neon)!important}.level.l2,.level.l3,.level.l4{color:var(--gold)!important;border-color:rgba(255,234,0,.4)!important}
+.signal{font-family:'Cinzel Decorative',serif;text-shadow:0 0 18px currentColor}.signal.SMALL,.signal.GREEN{color:#00ff41!important}.num,.number-pick b{color:var(--neon)!important;text-shadow:0 0 12px rgba(0,255,65,.4)}
+.number-pick{padding:11px 8px}.mini b{color:#fff}.track{background:#222!important}.track span{background:linear-gradient(90deg,#00ff41,#008f11)!important}
+.sure-shot{border:1px solid rgba(255,234,0,.55)!important;background:linear-gradient(90deg,rgba(45,34,0,.9),rgba(15,15,0,.9))!important;color:#ffea00!important;border-radius:10px}
+.tablewrap,.admin-hacks-wrap{border:1px solid rgba(0,255,65,.25)!important;border-radius:13px;background:rgba(0,0,0,.65)!important}
+table{font-family:'Rajdhani',sans-serif!important}th{color:#aaa!important;background:rgba(0,255,65,.07)!important;border-bottom:1px solid rgba(0,255,65,.2)!important;text-transform:uppercase;letter-spacing:1px}td{color:#eee!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+.win{color:#00ff41!important;text-shadow:0 0 12px rgba(0,255,65,.4)}.loss{color:#ff003c!important}.jackpot,.pending{color:#ffea00!important}
+.admin-entry{padding:15px!important}.admin-toggle,.admin-btn,.app-key-card button{background:linear-gradient(45deg,#00ff41,#008f11)!important;color:#000!important;border:0!important;border-radius:10px!important;font-family:'Cinzel Decorative',serif;font-weight:900;letter-spacing:1px}
+.admin-box{background:rgba(0,0,0,.82)!important}.admin-input,.app-key-card input{background:rgba(0,0,0,.75)!important;border:1px solid rgba(0,255,65,.35)!important;color:#00ff41!important;border-radius:10px!important}
+.admin-box h3,.app-key-card h1{font-family:'Cinzel Decorative',serif;color:#00ff41!important}
+.admin-message.ok{color:#00ff41!important}.admin-message{color:#ff003c!important}
+.app-key-gate{background:rgba(0,0,0,.88)!important;backdrop-filter:blur(8px)}
+.app-key-card{border-color:rgba(0,255,65,.45)!important}
+@media(max-width:520px){.wrap{padding:12px 10px 28px}.topgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:16px}.card{padding:14px!important}.brand{letter-spacing:2px}}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<section class="app-key-gate" id="appKeyGate" aria-label="App access key">
+ <div class="app-key-card"><h1>𝗧𝗨𝗦𝗛𝗔𝗥-𝗚𝗢𝗗𝗫 ⚡</h1><p>Enter your access key to open the prediction dashboard.</p>
+ <input id="appAccessKey" type="password" placeholder="Enter access key" autocomplete="off" aria-label="Access key">
+ <button id="appUnlockBtn" type="button">UNLOCK APP</button><div class="app-key-msg" id="appKeyMessage" role="status"></div></div>
+</section>
+<main class="wrap">
+<header class="head">
+ <div class="brand">𝗧𝗨𝗦𝗛𝗔𝗥-𝗚𝗢𝗗𝗫 <span>⚡</span></div>
+</header>
+<section class="card" id="mainPrediction">
+ <div class="cardhead"><div><h2 id="mainTitle">SC INDIA</h2><div class="source" id="mainSource">Prediction source</div></div></div>
+ <div class="period">TARGET PERIOD: <b id="mainPeriod">--</b></div>
+ <div class="signalrow"><div class="signal" id="mainSignal">WAITING</div><div class="num" id="mainNumbers">?<small>SINGLE NUMBER</small></div></div><div class="number-picks main-picks" id="mainNumberPicks"><div class="number-pick"><small>NUMBER PREDICTION</small><b>?</b></div></div>
+ <div class="sure-shot" id="sureShotBadge" hidden>SURE SHOT ⚡<small>Level-based alert only — not a guaranteed result.</small></div>
+ <div class="mainmeta"><div class="mini"><small>TIME LEFT</small><b id="countdown">--:--</b></div><div class="mini"><small>LAST RESULT</small><b id="lastResultText">--</b></div><div class="mini"><small>SELECTED HACK · CURRENT LEVEL</small><b id="mainLevel">SC INDIA · LEVEL 1</b></div><div class="mini" id="mainLossesWrap" style="display:none"><small>SELECTED HACK · CURRENT CONSECUTIVE LOSSES</small><b id="mainLosses">0</b></div></div>
+</section>
+<section class="historywrap"><h3 class="sectiontitle">WIN / LOSS HISTORY</h3><div class="tablewrap"><table class="historytable"><thead><tr><th>PERIOD</th><th>PREDICTION</th><th>ACTUAL</th><th>RESULT</th></tr></thead><tbody id="historyBody"><tr><td colspan="4" class="history-empty">Waiting for results…</td></tr></tbody></table></div></section>
+<h3 class="sectiontitle" style="display:none">ALL HACK PREDICTIONS + NUMBERS</h3><section id="engines" class="engines" style="display:none"></section>
+<div id="apiStatus" style="display:none"></div><div id="lastResult" style="display:none"></div>
+<section class="admin-entry" aria-label="Admin access">
+ <button class="admin-toggle" id="adminToggle" type="button" aria-expanded="false">🔐 ADMIN PANEL</button>
+ <div class="admin-box" id="adminBox">
+  <h3>SHAN ADMIN ACCESS</h3>
+  <label for="adminKey" class="source">Enter admin key to continue</label>
+  <input class="admin-input" id="adminKey" type="password" placeholder="Enter access key" autocomplete="off">
+  <div class="admin-actions"><button class="admin-btn" id="adminLogin" type="button">UNLOCK PANEL</button><button class="admin-btn" id="adminHide" type="button">CLOSE</button></div>
+  <div class="admin-message" id="adminMessage" role="status"></div>
+  <div class="admin-content" id="adminContent">
+   <h3>ADMIN DASHBOARD ✅</h3>
+   <div class="admin-stats">
+    <div class="mini"><small>API STATUS</small><b id="adminApiStatus">--</b></div>
+    <div class="mini"><small>ACTIVE HACK</small><b id="adminActiveHack">--</b></div>
+    <div class="mini"><small>CURRENT PERIOD</small><b id="adminPeriod">--</b></div>
+    <div class="mini"><small>DISPLAYED PREDICTION</small><b id="adminPrediction">--</b></div>
+   </div>
+   <h4 style="margin:16px 0 8px">ALL HACKS DATA</h4>
+   <div class="admin-hacks-wrap"><table class="admin-hacks-table"><thead><tr><th>HACK</th><th>LEVEL</th><th>TARGET PERIOD</th><th>BIG / SMALL</th><th>NUMBER(S)</th><th>WINS</th><th>LOSSES</th><th>LOSS STREAK</th></tr></thead><tbody id="adminHackRows"><tr><td colspan="8" class="admin-wait">Loading hack data…</td></tr></tbody></table></div>
+   <div class="admin-actions" style="margin-top:10px"><button class="admin-btn" id="adminRefresh" type="button">REFRESH DATA</button><button class="admin-btn" id="adminLock" type="button">LOCK ADMIN</button></div>
+  </div>
+ </div>
+</section>
+</main>
+<script>
+const API_1M='https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json';
+const API_30S='https://draw.ar-lottery01.com/WinGo/WinGo_30S/GetHistoryIssuePage.json';
+const STAKES=[50,150,450,1350];
+const level4History=[];
+const mainHistory=[];
+const lockedMainByPeriod=new Map();
+let activeMainSource=null;
+let preferredSourceId=null;
+let lastSwitchPeriod=null;
+const settledMainSourceByPeriod=new Map();
+
+
+
+const engines=[
+ {id:'rexaa',name:'REXAA ULTRA VIP',source:'Imported FUSION V17 adaptive size engine',api:'1m',losses:0,lossStreak:0,pred:null,seen:null,wins:0,lossCount:0,history:[],calc:rexaaPrediction},
+ {id:'scindia',name:'SC INDIA',source:'SC INDIA digit map + backup map',api:'1m',losses:0,lossStreak:0,pred:null,seen:null,wins:0,lossCount:0,history:[],calc:scIndiaPrediction},
+ {id:'bossbhai',name:'BOSS BHAI',source:'Imported 2-level pattern engine · main + opposite number',api:'1m',losses:0,lossStreak:0,pred:null,seen:null,wins:0,lossCount:0,history:[],calc:bossBhaiPrediction},
+];
+const $=id=>document.getElementById(id);
+const size=n=>n>=5?'BIG':'SMALL';
+const level=e=>Math.min(4,e.losses+1);
+const stake=e=>STAKES[level(e)-1];
+const normList=list=>list.map(x=>({issue:String(x.issueNumber||x.issue||''),number:parseInt(String(x.number??x.code).slice(-1),10)})).filter(x=>x.issue&&Number.isFinite(x.number)&&x.number>=0&&x.number<=9);
+function nextIssue(issue){try{return (BigInt(issue)+1n).toString()}catch{return issue}}
+function safeNum(n){return Number.isFinite(n)?n:'?'}
+function ghostPrediction(nums,e){
+ const color=n=>[0,2,4,6,8].includes(n)?'RED':'GREEN';
+ if(nums.length<5)return {size:'BIG',color:'RED',nums:[2,4],confidence:'Collecting data'};
+ const colors=nums.slice(0,50).map(color);let pred;
+ if(e.losses>=2) pred=colors[0]==='RED'?'GREEN':'RED';
+ else if(e.losses===1) pred=e.pred?.size==='RED'?'GREEN':e.pred?.size==='GREEN'?'RED':(colors[0]==='RED'?'GREEN':'RED');
+ else if(colors[0]===colors[1]&&colors[1]===colors[2])pred=colors[0];
+ else if(colors[0]!==colors[1]&&colors[1]!==colors[2])pred=colors[0]==='RED'?'GREEN':'RED';
+ else {let r=0,g=0;nums.slice(0,15).forEach((n,i)=>{if(color(n)==='RED')r+=15-i;else g+=15-i});pred=r>=g?'RED':'GREEN'}
+ const freq=Array(10).fill(0);nums.slice(0,25).forEach(n=>freq[n]++);
+ const pool=pred==='RED'?[0,2,4,6,8]:[1,3,5,7,9];
+ const picks=[...pool].sort((a,b)=>freq[a]-freq[b]).slice(0,2);
+ // Keep the color signal and BIG/SMALL signal separate.
+ const recent=nums.slice(0,6), big=recent.filter(n=>n>=5).length, small=recent.length-big;
+ let sizePred=big>=small?'BIG':'SMALL';
+ if(e.losses>=2) sizePred=size(nums[0])==='BIG'?'SMALL':'BIG';
+ return {size:sizePred,color:pred,nums:picks,confidence:e.losses>=2?'RED/GREEN + BIG/SMALL recovery logic':'RED/GREEN + BIG/SMALL trend'};
+}
+function akmPrediction(nums){
+ if(nums.length<3)return {size:'BIG',nums:[7,2],confidence:'Collecting data'};
+ const hist=nums.map(number=>({number,size:size(number)==='BIG'?'Big':'Small'}));
+ const a=hist.slice(0,18).map(x=>x.number);let up=0,down=0;for(let i=1;i<a.length;i++){if(a[i]>a[i-1])up++;else if(a[i]<a[i-1])down++}
+ const crm=up>down?'BIG':'SMALL';
+ const last=hist.slice(0,12).map(x=>x.number),b=last.filter(n=>n>=5).length,s=last.length-b;
+ const psm=b-s>=3?'SMALL':s-b>=3?'BIG':(b>=s?'BIG':'SMALL');
+ const recentTrend=nums.slice(0,5).filter(n=>n>=5).length>=3?'BIG':'SMALL';
+ const pred=[crm,psm,recentTrend].filter(x=>x==='BIG').length>=2?'BIG':'SMALL';
+ const freq=Array(10).fill(0);nums.slice(0,25).forEach(n=>freq[n]++);
+ const primary=(pred==='BIG'?[5,6,7,8,9]:[0,1,2,3,4]).sort((x,y)=>freq[x]-freq[y])[0];
+ const backupPool=pred==='BIG'?[5,6,7,8,9]:[0,1,2,3,4];
+ const backup=backupPool.filter(n=>n!==primary).sort((x,y)=>freq[x]-freq[y])[0] ?? primary;
+ return {size:pred,nums:[primary,backup],confidence:'CRM / PSM / trend fusion'};
+}
+
+// REXAA ULTRA VIP: adapted from the newly supplied FUSION V17 size strategy.
+// Random branches are made deterministic and only one number is shown.
+const REXAA_MODES=['REVERSAL','TREND_FOLLOW','PATTERN_BREAK','MOMENTUM','ALTERNATING','STREAK_KILLER','FREQUENCY','RANDOM_FOREST'];
+function rexaaPrediction(nums,e){
+ const history=nums.length?nums:[7,2,5,1,8,3,6,4,9,0,2,7];
+ const sizes=history.map(n=>n>=5?'BIG':'SMALL'), last=history[0], lastSize=sizes[0];
+ let pred,mode;
+ if((e.losses||0)>=2) {pred=lastSize==='BIG'?'SMALL':'BIG';mode='REXAA · STREAK INTERCEPT';}
+ else if(history.length<12){pred=lastSize==='BIG'?'SMALL':'BIG';mode='REXAA · SYNCING DATA';}
+ else {
+  const ss=sizes.slice(0,12).reverse().map(n=>n[0]).join('');
+  if(ss.endsWith('BBBBBB')){pred='BIG';mode='REXAA · DRAGON PULSE BIG';}
+  else if(ss.endsWith('SSSSSS')){pred='SMALL';mode='REXAA · DRAGON PULSE SMALL';}
+  else if(ss.endsWith('BSBSBS')||ss.endsWith('SBSBSB')){pred=ss.endsWith('B')?'SMALL':'BIG';mode='REXAA · ALTERNATE BREAK';}
+  else if(ss.endsWith('BBSS')||ss.endsWith('SSBB')){pred=ss.endsWith('S')?'BIG':'SMALL';mode='REXAA · BOX REVERSION';}
+  else if(ss.endsWith('BBBSSS')||ss.endsWith('SSSBBB')){pred=ss.endsWith('S')?'BIG':'SMALL';mode='REXAA · DOUBLE TRIPLE';}
+  else if(last===0||last===5){pred=last===0?'BIG':'SMALL';mode='REXAA · DIGIT OVERRIDE';}
+  else {
+   const big10=sizes.slice(0,10).filter(x=>x==='BIG').length, small10=10-big10;
+   if(big10>=8){pred='SMALL';mode='REXAA · BIG BREAK';}
+   else if(small10>=8){pred='BIG';mode='REXAA · SMALL BREAK';}
+   else {
+    const weight=(history[0]+history[1]+history[2])%REXAA_MODES.length;
+    switch(REXAA_MODES[weight]){
+     case 'REVERSAL': pred=lastSize==='BIG'?'SMALL':'BIG';mode='REXAA · REVERSAL';break;
+     case 'TREND_FOLLOW': pred=sizes.slice(0,5).filter(x=>x==='BIG').length>=3?'BIG':'SMALL';mode='REXAA · TREND FOLLOW';break;
+     case 'PATTERN_BREAK':
+      if(sizes.slice(0,4).every(x=>x===sizes[0]))pred=lastSize==='BIG'?'SMALL':'BIG';
+      else if(sizes.slice(0,4).filter(x=>x==='BIG').length===3)pred='SMALL';
+      else if(sizes.slice(0,4).filter(x=>x==='BIG').length===1)pred='BIG';
+      else pred=lastSize==='BIG'?'SMALL':'BIG';
+      mode='REXAA · PATTERN BREAK';break;
+     case 'MOMENTUM':
+      {const rb=sizes.slice(0,4).filter(x=>x==='BIG').length, ob=sizes.slice(4,8).filter(x=>x==='BIG').length;
+       pred=rb>ob+1?'SMALL':ob>rb+1?'BIG':(lastSize==='BIG'?'SMALL':'BIG');mode='REXAA · MOMENTUM';}break;
+     case 'ALTERNATING':
+      {let alt=true;for(let i=1;i<Math.min(5,sizes.length);i++)if(sizes[i]===sizes[i-1])alt=false;
+       pred=alt?(lastSize==='BIG'?'SMALL':'BIG'):(sizes.slice(0,6).filter(x=>x==='BIG').length>=3?'BIG':'SMALL');mode='REXAA · ALTERNATING';}break;
+     case 'STREAK_KILLER':
+      {let streak=1;for(let i=1;i<Math.min(sizes.length,6);i++){if(sizes[i]===lastSize)streak++;else break}
+       pred=streak>=2?(lastSize==='BIG'?'SMALL':'BIG'):(sizes.slice(0,4).filter(x=>x==='BIG').length>=2?'BIG':'SMALL');mode='REXAA · STREAK KILLER';}break;
+     case 'FREQUENCY': pred=sizes.slice(0,10).filter(x=>x==='BIG').length>=5?'BIG':'SMALL';mode='REXAA · FREQUENCY';break;
+     default:
+      {const votes=[lastSize==='BIG'?'SMALL':'BIG',sizes.slice(0,5).filter(x=>x==='BIG').length>=3?'BIG':'SMALL'];
+       const b4=sizes.slice(0,4).filter(x=>x==='BIG').length;if(b4===3)votes.push('SMALL');if(b4===1)votes.push('BIG');
+       pred=votes.filter(x=>x==='BIG').length>=votes.length/2?'BIG':'SMALL';mode='REXAA · RANDOM FOREST';}
+    }
+   }
+  }
+ }
+ // Use REXAA FUSION V17's own two-number mapping, deterministically.
+ // Display the opposite number first, e.g. SMALL 7/2, rather than inventing a number.
+ const recentSum=history.slice(0,5).reduce((a,b)=>a+b,0);
+ const chance=((recentSum*17 + (history[0]||0)*13) % 100 + 100) % 100;
+ let primary, opposite;
+ if(pred==='BIG'){
+   if(chance<40) primary=7;
+   else if(chance<70) primary=9;
+   else primary=(recentSum%2===0?6:8);
+   opposite=recentSum>20?0:2;
+ } else {
+   if(chance<40) primary=2;
+   else if(chance<70) primary=4;
+   else primary=(recentSum%2===0?1:3);
+   opposite=recentSum<25?7:9;
+ }
+ return {size:pred==='BIG'?'SMALL':'BIG',nums:[opposite,primary],confidence:mode+' · REXAA side inverted; original number map preserved'};
+}
+
+// SC INDIA prediction mapping ported from the supplied SC_INDIA HTML; its source-defined number map is preserved.
+const SC_PC={0:'BIG',1:'SMALL',2:'BIG',3:'BIG',4:'SMALL',5:'BIG',6:'BIG',7:'SMALL',8:'SMALL',9:'BIG'};
+const SC_BN={0:[1,4],1:[2,0],2:[4,3],3:[3,1],4:[2,4],5:[1,4],6:[2,0],7:[4,3],8:[3,1],9:[2,4]};
+const SC_SN={0:[5,7],1:[7,8],2:[9,6],3:[6,5],4:[8,6],5:[5,7],6:[7,8],7:[9,6],8:[8,6],9:[8,9]};
+function bossBhaiPrediction(numbers,e){
+ const nums=(numbers||[]).filter(n=>Number.isInteger(n)&&n>=0&&n<=9);
+ if(nums.length<5) return {size:'BIG',nums:[6,1],confidence:'BOSS BHAI · collecting data; opposite number included'};
+ const sizes=nums.map(n=>n>=5?'BIG':'SMALL');
+ const recent=sizes.slice(0,6), bigCount=recent.filter(s=>s==='BIG').length;
+ const recentRatio=bigCount/(recent.length||1);
+ let alternations=0;
+ for(let i=0;i<Math.min(5,sizes.length-1);i++) if(sizes[i]!==sizes[i+1]) alternations++;
+ const altStrength=alternations/4;
+ let streak=1;
+ for(let i=1;i<sizes.length;i++){if(sizes[i]===sizes[0])streak++;else break;}
+ let trend='BIG',strength=0.76,boost=9;
+ if(streak>=3){trend=sizes[0]==='BIG'?'SMALL':'BIG';strength=0.85;boost=15;}
+ else if(altStrength>0.7){trend=sizes[0]==='BIG'?'SMALL':'BIG';strength=0.75;boost=10;}
+ else if(recentRatio>0.65){trend='BIG';strength=recentRatio;boost=8;}
+ else if(recentRatio<0.35){trend='SMALL';strength=1-recentRatio;boost=4;}
+ else {const avg=nums.slice(0,5).reduce((a,b)=>a+b,0)/Math.min(5,nums.length);trend=avg>=4.5?'BIG':'SMALL';strength=0.6;boost=5;}
+ let macro='BIG',cycleMatch=false,harmonic=0;
+ if(sizes.length>=12){
+  const blocks=[];for(let i=0;i<Math.min(16,sizes.length);i+=2)blocks.push(sizes.slice(i,i+2).join(''));
+  const freq={};blocks.forEach(b=>freq[b]=(freq[b]||0)+1);
+  const common=Object.keys(freq).sort((a,b)=>freq[b]-freq[a])[0]||'BIGBIG';
+  const fib=[1,2,3,5,8];let hits=0;
+  for(let i=0;i<Math.min(15,nums.length-1);i++)if(fib.includes(Math.abs(nums[i]-nums[i+1])))hits++;
+  harmonic=hits/Math.max(1,Math.min(14,nums.length-1));
+  const bigRatio=sizes.slice(0,15).filter(s=>s==='BIG').length/Math.min(15,sizes.length);
+  macro=bigRatio>0.55?'BIG':(bigRatio<0.45?'SMALL':(bigRatio>=0.5?'BIG':'SMALL'));
+  cycleMatch=(freq[common]||0)/blocks.length>0.55;
+  if(trend!==macro&&cycleMatch&&harmonic>0.4)trend=macro;
+  boost=Math.min(25,Math.floor(((freq[common]||0)/blocks.length*20)+(harmonic*15)));
+ }
+ const confidence=Math.min(94,Math.floor(strength*70+15+boost+(trend===macro?18:0)));
+ const pool=trend==='BIG'?[5,6,7,8,9]:[0,1,2,3,4];
+ const freq=Array(10).fill(0);nums.slice(0,25).forEach(n=>freq[n]++);
+ // First number follows BOSS BHAI's predicted size; second is explicitly the opposite-size number.
+ const main=pool.slice().sort((a,b)=>freq[b]-freq[a]||a-b)[0];
+ const oppositePool=trend==='BIG'?[0,1,2,3,4]:[5,6,7,8,9];
+ const opposite=oppositePool.slice().sort((a,b)=>freq[b]-freq[a]||a-b)[0];
+ const mode=streak>=3?'streak reversal':altStrength>0.7?'alternation':cycleMatch?'macro-cycle':'micro-trend';
+ return {size:trend,nums:[main,opposite],confidence:`BOSS BHAI · ${confidence}% · ${mode} · main/opposite number`};
+}
+
+function scIndiaPrediction(nums){
+ const digit=nums&&nums.length?nums[0]:null;
+ if(!Number.isInteger(digit)||digit<0||digit>9)return {size:'BIG',nums:[1,4],confidence:'SC INDIA · collecting data'};
+ const pred=SC_PC[digit];
+ const picks=(pred==='BIG'?SC_BN:SC_SN)[digit]|| (pred==='BIG'?[1,4]:[5,7]);
+ return {size:pred,nums:[...picks],confidence:'SC INDIA exact digit/backup map · last digit '+digit};
+}
+
+// TRADEGENIUS07 source logic: three-result streak, zig-zag, and double-twin rules.
+// Number picks are made deterministically so a refresh cannot randomly change a live pick.
+function pickLeastFrequent(nums,pred,exclude=null){
+ const pool=pred==='BIG'?[5,6,7,8,9]:[0,1,2,3,4],freq=Array(10).fill(0);
+ nums.slice(0,25).forEach(n=>{if(Number.isInteger(n)&&n>=0&&n<=9)freq[n]++});
+ return pool.filter(n=>n!==exclude).sort((a,b)=>freq[a]-freq[b]||a-b)[0] ?? pool[0];
+}
+function tradeGeniusPrediction(nums){
+ const last=nums[0]??7,last2=nums[1]??3,last3=nums[2]??6;
+ const b1=size(last),b2=size(last2),b3=size(last3);let pred,patternName;
+ if(b1===b2&&b2===b3){pred=b1;patternName='Dragon Streak';}
+ else if(b1!==b2&&b2!==b3){pred=b1==='BIG'?'SMALL':'BIG';patternName='Zig-Zag Mirror';}
+ else if(b1===b2){pred=b1==='BIG'?'SMALL':'BIG';patternName='AABB Double Twin';}
+ else {pred=b1;patternName='Quantum Momentum';}
+ const primary=pickLeastFrequent(nums,pred),backup=pickLeastFrequent(nums,pred,primary);
+ return {size:pred,nums:[primary,backup],confidence:'TRADEGENIUS07 · '+patternName};
+}
+// BMW X PRIME source logic: pattern triggers, streak continuation/reversal, alternation,
+// then a recent-window equilibrium fallback. This is a local port of its size engine.
+const BMW_PATTERNS=[{pattern:"BSBSBS",next:"BIG",name:"BIG SMALL BIG SMALL BIG SMALL PATTERN",conf:98.5},{pattern:"SBSBSB",next:"SMALL",name:"SMALL BIG SMALL BIG SMALL BIG PATTERN",conf:98.5},{pattern:"SSSSS",next:"SMALL",name:"SMALL SMALL SMALL SMALL SMALL PATTERN",conf:98},{pattern:"BBBBB",next:"BIG",name:"BIGGG BIGGG BIGGG BIGGG BIGGG PATTERN",conf:98},{pattern:"BBSBBSBB",next:"BIG",name:"BIG BIG SMALL BIG BIG SMALL BIG BIG PATTERN",conf:99},{pattern:"SSBBSSBB",next:"SMALL",name:"SMALL SMALL BIG BIG SMALL SMALL BIG BIG PATTERN",conf:99},{pattern:"BBBBBBBB",next:"BIG",name:"DRAGON PATTERN (8X BIG)",conf:99},{pattern:"SSSSSSSS",next:"SMALL",name:"DRAGON PATTERN (8X SMALL)",conf:99},{pattern:"SSBSSB",next:"SMALL",name:"SMALL SMALL BIG SMALL SMALL BIG PATTERN",conf:98},{pattern:"BBBBBB",next:"BIG",name:"6 BIG BIG BIG BIG BIG BIG PATTERN",conf:98.5},{pattern:"SSSSSS",next:"SMALL",name:"6 SMALL SMALL SMALL SMALL SMALL SMALL PATTERN",conf:98.5},{pattern:"SSSSB",next:"BIG",name:"4 SMALL SMALL SMALL SMALL BIG PATTERN",conf:98},{pattern:"5-5",next:"BIG",name:"NUMBERS PATTERN: 5-5 REPEAT TRIGGER",conf:99.5},{pattern:"4-4",next:"SMALL",name:"NUMBERS PATTERN: 4-4 REPEAT TRIGGER",conf:99.5},{pattern:"BBBBS",next:"SMALL",name:"4 BIG BIG BIG BIG SMALL PATTERN",conf:98},{pattern:"BBSBBSB",next:"BIG",name:"BIG BIG SMALL BIG BIG SMALL BIG BIG PATTERN",conf:98.5},{pattern:"SSSSBSSS",next:"BIG",name:"4 SMALL SMALL SMALL SMALL 1 BIG 3 SMALL SMALL SMALL PATTERN",conf:99},{pattern:"SSSBSSS",next:"BIG",name:"3 SMALL SMALL SMALL 1 BIG 3 SMALL SMALL SMALL PATTERN",conf:98.5},{pattern:"SSBB",next:"SMALL",name:"SMALL SMALL BIG BIG PATTERN",conf:97.5},{pattern:"SBSBS",next:"BIG",name:"SMALL BIG SMALL BIG SMALL PATTERN",conf:98},{pattern:"BBBSBS",next:"BIG",name:"BIG BIG BIG SMALL BIG SMALL PATTERN",conf:98.5},{pattern:"SSSSBBBB",next:"SMALL",name:"SMALL SMALL SMALL SMALL BIG BIG BIG BIG PATTERN",conf:99},{pattern:"BBBBSSSS",next:"BIG",name:"BIG BIG BIG BIG SMALL SMALL SMALL SMALL PATTERN",conf:99},{pattern:"BSSB",next:"SMALL",name:"BIG SMALL SMALL BIG PATTERN",conf:98},{pattern:"SBBS",next:"BIG",name:"SMALL BIG BIG SMALL PATTERN",conf:98},{pattern:"BBBSBBBS",next:"BIG",name:"BIG BIG BIG SMALL BIG BIG BIG SMALL PATTERN",conf:99},{pattern:"BBBBSSBBB",next:"SMALL",name:"BIG BIG BIG BIG SMALL SMALL BIG BIG BIG PATTERN",conf:99},{pattern:"BBBSSSBS",next:"BIG",name:"BIG BIG BIG SMALL SMALL SMALL BIG SMALL PATTERN",conf:99},{pattern:"SSSSBBSSSSS",next:"BIG",name:"4 SMALL SMALL SMALL SMALL BIG BIG 5 SMALL SMALL SMALL SMALL SMALL PATTERN",conf:99.5},{pattern:"SSSSBBBB",next:"SMALL",name:"4 SMALL SMALL SMALL SMALL 4 BIG BIG BIG BIG",conf:99},{pattern:"SSSSSSBS",next:"BIG",name:"6 SMALL SMALL SMALL SMALL SMALL SMALL BIG SMALL",conf:99},{pattern:"BBBSSBSBBB",next:"BIG",name:"3 BIG BIG BIG SMALL SMALL BIG SMALL 3 BIG BIG BIG",conf:99.5},{pattern:"SSSS",next:"SMALL",name:"4 SMALL SMALL SMALL SMALL PATTERN",conf:97},{pattern:"SSSS",next:"SMALL",name:"SMALL DRAGON PATTERN",conf:97.5},{pattern:"BBBB",next:"BIG",name:"BIG DRAGON PATTERN",conf:97.5},{pattern:"BBBSSSB",next:"BIG",name:"3 BIG BIG BIG 3 SMALL SMALL SMALL BIG PATTERN",conf:98.5},{pattern:"BBBSSSBBBSB",next:"SMALL",name:"3 BIG BIG BIG 3 SMALL SMALL SMALL 3 BIG BIG BIG SMALL BIG PATTERN",conf:99},{pattern:"BBBS",next:"BIG",name:"3 BIG BIG BIG SMALL DRAGON PATTERN",conf:97},{pattern:"SSSSSBSSSSB",next:"BIG",name:"5 SMALL SMALL SMALL SMALL SMALL BIG 4 SMALL SMALL SMALL SMALL BIG PATTERN",conf:99},{pattern:"SSSSBBBBS",next:"BIG",name:"4 SMALL SMALL SMALL SMALL 4 BIG BIG BIG BIG SMALL PATTERN",conf:99},{pattern:"BBBBBSSSSBS",next:"BIG",name:"5 BIG BIG BIG BIG BIG 4 SMALL SMALL SMALL SMALL BIG SMALL PATTERN",conf:99.5},{pattern:"SSSBBSSSBS",next:"BIG",name:"3 SMALL SMALL SMALL BIG BIG 3 SMALL SMALL SMALL BIG SMALL PATTERN",conf:99},{pattern:"BBBSSSSSBS",next:"BIG",name:"3 BIG BIG BIG 5 SMALL SMALL SMALL SMALL SMALL BIG SMALL PATTERN",conf:99},{pattern:"SSSSBSSSSB",next:"BIG",name:"4 SMALL SMALL SMALL SMALL BIG 4 SMALL SMALL SMALL SMALL BIG PATTERN",conf:99},{pattern:"SSSSSBSSSSSB",next:"BIG",name:"5 SMALL SMALL SMALL SMALL SMALL BIG 5 SMALL SMALL SMALL SMALL SMALL BIG PATTERN",conf:99.5},{pattern:"SSSSBSBSSSS",next:"BIG",name:"4 SMALL SMALL SMALL SMALL BIG SMALL BIG 4 SMALL SMALL SMALL SMALL PATTERN",conf:99.5},{pattern:"BBBBBSBS",next:"BIG",name:"5 BIG BIG BIG BIG BIG SMALL BIG SMALL PATTERN",conf:99},{pattern:"BBBBSSSBBS",next:"BIG",name:"4 BIG BIG BIG BIG SMALL SMALL SMALL BIG BIG SMALL PATTERN",conf:99},{pattern:"SSSSSSBSBBBBBB",next:"SMALL",name:"5 SMALL SMALL SMALL SMALL SMALL BIG SMALL 6 BIG BIG BIG BIG BIG BIG SMALL BIG PATTERN",conf:99.5},{pattern:"BBSSSBBSSBB",next:"SMALL",name:"BIG BIG 3 SMALL SMALL SMALL BIG BIG SMALL BIG BIG PATTERN",conf:99},{pattern:"SSSSSSS",next:"SMALL",name:"SMALL SMALL SMALL SMALL SMALL SMALL SMALL PATTERN",conf:99},{pattern:"BBBBBBB",next:"BIG",name:"BIG BIG BIG BIG BIG BIG BIG PATTERN",conf:99},{pattern:"SSS",next:"SMALL",name:"3 SMALL SMALL SMALL PATTERN",conf:96},{pattern:"BBB",next:"BIG",name:"3 BIG BIG BIG PATTERN",conf:96},{pattern:"SSSS",next:"SMALL",name:"4 SMALL SMALL SMALL SMALL PATTERN",conf:97},{pattern:"BBBB",next:"BIG",name:"4 BIG BIG BIG BIG PATTERN",conf:97},{pattern:"SSSSSBSBBBBBB",next:"SMALL",name:"5 SMALL SMALL SMALL SMALL SMALL BIG SMALL 6 BIG BIG BIG BIG BIG BIG SMALL BIG PATTERN",conf:99.5},{pattern:"BBBSSSSSS",next:"BIG",name:"3 BIG BIG BIG SMALL SMALL SMALL SMALL SMALL SMALL PATTERN",conf:99},{pattern:"BBBSSSBBBS",next:"BIG",name:"3 BIG BIG BIG 3 SMALL SMALL SMALL 3 BIG BIG BIG SMALL PATTERN",conf:99},{pattern:"BBBBBBBSBSBBBBBBSB",next:"SMALL",name:"7 BIG BIG BIG BIG BIG BIG BIG SMALL BIG SMALL 6 BIG BIG BIG BIG BIG BIG SMALL BIG PATTERN",conf:99.5},{pattern:"SSSSSSSBBBBBSBS",next:"BIG",name:"7 SMALL SMALL SMALL SMALL SMALL SMALL SMALL 5 BIG BIG BIG BIG BIG SMALL BIG SMALL PATTERN",conf:99.5},{pattern:"BBBSBBBBSS",next:"BIG",name:"3 BIG BIG BIG SMALL 4 BIG BIG BIG BIG SMALL SMALL PATTERN",conf:99},{pattern:"BBBSSSSSS",next:"BIG",name:"3 BIG BIG BIG SMALL SMALL SMALL SMALL SMALL SMALL PATTERN",conf:99},{pattern:"BBBSSSBBBS",next:"BIG",name:"3 BIG BIG BIG 3 SMALL SMALL SMALL 3 BIG BIG BIG SMALL PATTERN",conf:99},{pattern:"BBBBBSSSSBBBBBB",next:"SMALL",name:"5 BIG BIG BIG BIG BIG 4 SMALL SMALL SMALL SMALL 6 BIG BIG BIG BIG BIG BIG",conf:99.5}];
+function bmwPrediction(nums){
+ // The BMW X PRIME pattern master is evaluated chronologically, as in its source.
+ const chronological=nums.slice(0,30).slice().reverse(),seq=chronological.map(size),lastSize=seq[seq.length-1]||'BIG';
+ const recent5=seq.slice(-5),recent6=seq.slice(-6);let pred=null,reason='Harmonic oscillator target',conf=95.5;
+ const latest=chronological[chronological.length-1],previous=chronological[chronological.length-2];
+ if(chronological.length>=2&&latest===5&&previous===5){pred='BIG';conf=99.5;reason='5-5 repeat trigger';}
+ else if(chronological.length>=2&&latest===4&&previous===4){pred='SMALL';conf=99.5;reason='4-4 repeat trigger';}
+ else if(chronological.length>=2&&previous===4&&latest===6){pred='SMALL';conf=98.8;reason='4-6 bridge trigger';}
+ const signature=seq.map(x=>x==='BIG'?'B':'S').join('');
+ if(!pred){
+   const longPatterns=BMW_PATTERNS.filter(p=>p.pattern.length>=6).sort((a,b)=>b.pattern.length-a.pattern.length);
+   for(const p of longPatterns){if(signature.endsWith(p.pattern)){pred=p.next;conf=p.conf;reason=p.name;break;}}
+ }
+ let streak=1;for(let i=seq.length-1;i>0&&seq[i-1]===lastSize;i--)streak++;
+ let flips=0;for(let i=1;i<recent5.length;i++)if(recent5[i]!==recent5[i-1])flips++;
+ if(!pred&&streak>=7){pred=lastSize==='BIG'?'SMALL':'BIG';conf=98.5;reason='Ultra dragon exhaustion reversal';}
+ else if(!pred&&streak>=3&&streak<=6){pred=lastSize;conf=Math.min(99,95+streak);reason='Dragon live lock continuation';}
+ if(!pred&&flips>=3){pred=lastSize==='BIG'?'SMALL':'BIG';conf=98;reason='Alternating chop ping-pong';}
+ if(!pred){
+   const medium=BMW_PATTERNS.filter(p=>p.pattern.length>=4&&p.pattern.length<=5).sort((a,b)=>b.pattern.length-a.pattern.length);
+   for(const p of medium){if(signature.endsWith(p.pattern)){pred=p.next;conf=p.conf;reason=p.name;break;}}
+ }
+ if(!pred){const short=BMW_PATTERNS.filter(p=>p.pattern.length===3).sort((a,b)=>b.conf-a.conf);for(const p of short){if(signature.endsWith(p.pattern)){pred=p.next;conf=p.conf;reason=p.name;break;}}}
+ if(!pred){const big=seq.slice(-10).filter(x=>x==='BIG').length;if(seq.slice(-10).length>=7&&big>=7){pred='SMALL';conf=96;reason='10-period equilibrium';}else if(seq.slice(-10).length>=7&&big<=3){pred='BIG';conf=96;reason='10-period equilibrium';}else{pred=lastSize==='BIG'?'SMALL':'BIG';conf=95.5;reason='Harmonic oscillator target';}}
+ const side=pred==='BIG'?[5,6,7,8,9]:[0,1,2,3,4],freq=Array(10).fill(0);chronological.slice(-25).forEach(n=>{if(Number.isInteger(n)&&n>=0&&n<=9)freq[n]++});
+ const lastNumber=latest??(pred==='BIG'?7:2);
+ const ranked=side.map(n=>({digit:n,score:50+(n!==lastNumber?15:0)+(freq[n]||0)*8+(lastNumber%2!==n%2?10:0)})).sort((a,b)=>b.score-a.score||a.digit-b.digit);
+ const primary=ranked[0]?.digit??(pred==='BIG'?7:2),backup=ranked[1]?.digit??(pred==='BIG'?8:3);
+ return {size:pred,nums:[primary,backup],confidence:'BMW X PRIME · '+reason+' · '+conf+'%'};
+}
+// Imported prediction engine from 2_LEVEL_FIXX_INVERTED.html.
+// Keeps the source's AI weighting, loss-recovery levels, inverse signal, and number pools.
+
+// Fourth hack: prediction strategy adapted from the supplied HACKER RAJ VIP HTML.
+// Strategy selection is deterministic so refreshing the page does not randomly change a pick.
+function hackerRajPrediction(nums,e){
+ const hist=(nums||[]).filter(n=>Number.isInteger(n)&&n>=0&&n<=9);
+ const sizes=hist.map(size);
+ const strategies=['DYNAMIC_AI_LOGIC','REVERSAL','TREND_FOLLOW','STREAK_KILLER','RED_SUM_CALCULATION'];
+ let chosen;
+ if((e.losses||0)>=2) chosen='RED_SUM_CALCULATION';
+ else {
+   const idx=((e.history||[]).length + 1) % strategies.length;
+   chosen=strategies[idx];
+   if(chosen===e.lastHackerStrategy) chosen=strategies[(idx+1)%strategies.length];
+ }
+ e.lastHackerStrategy=chosen;
+ let pred='BIG',reason=chosen;
+ if(chosen==='DYNAMIC_AI_LOGIC'){
+   if(hist.length<5) pred=hist.length ? (size(hist[0])==='BIG'?'SMALL':'BIG') : 'BIG';
+   else {
+     let big=0,small=0;
+     const recent=sizes.slice(0,30),last5=recent.slice(0,5),latest=recent[0];
+     let streak=1;for(let i=1;i<recent.length&&recent[i]===latest;i++)streak++;
+     if(streak>=3){if(latest==='BIG')small+=streak*15;else big+=streak*15;}
+     const bc=last5.filter(x=>x==='BIG').length,sc=last5.length-bc;
+     if(bc>=4&&streak<4)big+=20;if(sc>=4&&streak<4)small+=20;
+     let alternating=last5.length>=5;for(let i=0;i<Math.min(4,last5.length-1);i++)if(last5[i]===last5[i+1])alternating=false;
+     if(alternating){if(latest==='BIG')small+=30;else big+=30;}
+     if(last5.join('-')==='BIG-BIG-SMALL-BIG-SMALL')big+=25;
+     if(last5.join('-')==='SMALL-SMALL-BIG-SMALL-BIG')small+=25;
+     if(last5[0]===last5[1]&&last5[1]!==last5[2]){if(latest==='BIG')small+=15;else big+=15;}
+     const totalBig=recent.filter(x=>x==='BIG').length,totalSmall=recent.length-totalBig;
+     if(totalBig>=13)small+=18;if(totalSmall>=13)big+=18;
+     pred=small>big?'SMALL':big>small?'BIG':(latest||'BIG');
+     if((e.lossStreak||0)>=3)pred=pred==='BIG'?'SMALL':'BIG';
+     if((e.lossStreak||0)>=5)pred=latest||pred;
+   }
+   reason='Adaptive AI strategy';
+ } else if(chosen==='REVERSAL'){
+   pred=sizes.length?(sizes[0]==='BIG'?'SMALL':'BIG'):'BIG';reason='Reverse latest result';
+ } else if(chosen==='TREND_FOLLOW'){
+   pred=sizes[0]||'BIG';reason='Follow latest trend';
+ } else if(chosen==='STREAK_KILLER'){
+   if(sizes.length>=3&&sizes[0]===sizes[1]&&sizes[1]===sizes[2]){pred=sizes[0]==='BIG'?'SMALL':'BIG';reason='Break 3-result streak';}
+   else {pred=hist.length?(hist[0]%2===0?'SMALL':'BIG'):'BIG';reason='Streak-killer fallback';}
+ } else {
+   const red=[0,2,4,6,8];let sum=0;for(let i=0;i<Math.min(10,hist.length);i++)if(red.includes(hist[i]))sum+=hist[i];
+   pred=sum%2!==0?'BIG':'SMALL';reason='Red-sum calculation';
+ }
+ // Number suggestions are deterministic and remain within the predicted side.
+ const pool=pred==='BIG'?[5,6,7,8,9]:[0,1,2,3,4],freq=Array(10).fill(0);
+ hist.slice(0,25).forEach(n=>freq[n]++);
+ const picks=pool.slice().sort((a,b)=>freq[a]-freq[b]||a-b).slice(0,2);
+ return {size:pred,nums:picks,confidence:'HACKER RAJ VIP · '+reason};
+}
+
+function renderCards(){
+ $('engines').innerHTML=engines.map(e=>`<article class="card" id="card-${e.id}">
+ <div class="cardhead"><div><h2>${e.name}</h2><div class="source">${e.source} · ${e.api.toUpperCase()}</div></div><div class="level" id="level-${e.id}">LEVEL 1</div></div>
+ <div class="period">TARGET PERIOD: <b id="period-${e.id}">--</b></div>
+ <div class="signalrow"><div class="signal" id="signal-${e.id}">WAITING</div><div class="num" id="numbers-${e.id}">?<small>SINGLE NUMBER</small></div></div><div class="number-picks" id="picks-${e.id}"><div class="number-pick"><small>NUMBER PREDICTION</small><b>?</b></div></div>
+ <div class="reason" id="reason-${e.id}">Waiting for source results…</div>
+ </article>`).join('');
+}
+function renderEngine(e){
+ const lv=level(e),card=$('card-'+e.id),lb=$('level-'+e.id);
+ card.classList.toggle('l4',lv===4);lb.className='level'+(lv===2?' l2':lv===3?' l3':lv===4?' l4':'');lb.textContent=lv===4?'LEVEL 4 · ALERT':`LEVEL ${lv}`;
+ $('period-'+e.id).textContent=e.pred?.period||'--';
+ const sig=$('signal-'+e.id);sig.textContent=e.pred?(e.pred.color?`${e.pred.size} / ${e.pred.color}`:e.pred.size):'WAITING';sig.className='signal '+(e.pred?.size||'');
+ $('numbers-'+e.id).innerHTML=e.pred?`${['rexaa','bossbhai'].includes(e.id)?e.pred.nums.join('/') : e.pred.nums[0]}<small>${['rexaa','bossbhai'].includes(e.id)?'MAIN / OPPOSITE':'SINGLE NUMBER'}</small>`:'?<small>SINGLE NUMBER</small>';
+ $('picks-'+e.id).innerHTML=e.pred?`<div class="number-pick"><small>${e.id==='rexaa'?'OPPOSITE / MAIN NUMBER':'NUMBER PREDICTION'}</small><b>${['rexaa','bossbhai'].includes(e.id)?e.pred.nums.join('/') : e.pred.nums[0]}</b></div>`:`<div class="number-pick"><small>NUMBER PREDICTION</small><b>?</b></div>`;
+ $('reason-'+e.id).textContent=e.pred?`${e.pred.confidence}${lv===4?' · THIS SOURCE IS AT LEVEL 4':''}`:'Waiting for source results…';
+}
+function renderMain(){
+  // Always show a live prediction. Once a hack has a loss, prefer the loss-based selection.
+  const latest1m=cache['1m']?.[0];
+  const target=latest1m?nextIssue(latest1m.issue):null;
+  const eligible=engines.filter(e=>(e.losses||0)>0);
+  let chosen=null;
+  const lockedId=target?lockedMainByPeriod.get(target):null;
+  // Prefer the locked/preferred loss-based hack, otherwise use the first configured hack.
+  chosen=eligible.find(e=>e.id===lockedId)||eligible.find(e=>e.id===preferredSourceId)||null;
+  if(!chosen && eligible.length){
+    chosen=[...eligible].sort((a,b)=>(b.lossCount-a.lossCount)||(b.losses-a.losses)||(b.lossStreak-a.lossStreak)||a.id.localeCompare(b.id))[0];
+  }
+  if(!chosen) chosen=engines.find(e=>e.pred) || engines[0] || null;
+  if(chosen && target){
+    lockedMainByPeriod.set(target,chosen.id);
+    activeMainSource=chosen.id;
+  }
+
+  if(!chosen){
+    $('mainTitle').textContent='WAITING FOR PREDICTION';
+    $('mainSource').textContent='Prediction is loading from the selected hack.';
+    $('mainLevel').textContent='WAITING';
+    $('mainLosses').textContent='0';
+    $('sureShotBadge').hidden=true;
+    $('mainPeriod').textContent=target||'--';
+    $('mainSignal').textContent='WAITING';
+    $('mainSignal').className='signal';
+    $('mainNumbers').innerHTML='?<small>WAITING FOR DATA</small>';
+    $('mainNumberPicks').innerHTML='<div class="number-pick"><small>STATUS</small><b>WAITING</b></div>';
+  } else {
+    $('mainTitle').textContent=chosen.name;
+    $('mainSource').textContent=`SELECTED HACK: ${chosen.name}`;
+    const chosenLevel=level(chosen);
+    $('mainLevel').textContent=`${chosen.name} · LEVEL ${chosenLevel}`;
+    const sureShot=chosenLevel===4;
+    const badge=$('sureShotBadge');
+    badge.hidden=!sureShot;
+    if(sureShot) badge.innerHTML=`LEVEL 4 ALERT ⚡ · ${chosen.name} · LEVEL ${chosenLevel}<small>Level-based alert only — not a guaranteed result.</small>`;
+    $('mainLosses').textContent=`${chosen.losses||0} LOSS · LEVEL ${chosenLevel}`;
+    $('mainPeriod').textContent=chosen.pred?.period||target||'--';
+    const sig=$('mainSignal');sig.textContent=chosen.pred?(chosen.pred.color?`${chosen.pred.size} / ${chosen.pred.color}`:chosen.pred.size):'WAITING';sig.className='signal '+(chosen.pred?.size||'');
+    $('mainNumbers').innerHTML=chosen.pred?`${['rexaa','bossbhai'].includes(chosen.id)?chosen.pred.nums.join('/') : chosen.pred.nums[0]}<small>${['rexaa','bossbhai'].includes(chosen.id)?'MAIN / OPPOSITE':'SINGLE NUMBER'} · ${chosen.name}</small>`:'?<small>SINGLE NUMBER</small>';
+    $('mainNumberPicks').innerHTML=chosen.pred?`<div class="number-pick"><small>${['rexaa','bossbhai'].includes(chosen.id)?'MAIN / OPPOSITE NUMBER':'NUMBER PREDICTION'}</small><b>${['rexaa','bossbhai'].includes(chosen.id)?chosen.pred.nums.join('/') : chosen.pred.nums[0]}</b></div>`:`<div class="number-pick"><small>NUMBER PREDICTION</small><b>?</b></div>`;
+  }
+  const periodMs=60000,remaining=periodMs-(Date.now()%periodMs);const secs=Math.max(0,Math.ceil(remaining/1000));
+  $('countdown').textContent=`${String(Math.floor(secs/60)).padStart(2,'0')}:${String(secs%60).padStart(2,'0')}`;
+  const latest=cache['1m']?.[0];$('lastResultText').textContent=latest?`${latest.number} · ${size(latest.number)}`:'--';
+  const rows=mainHistory.slice(0,50);
+  $('historyBody').innerHTML=rows.length?rows.map(r=>{const result=r.jackpot?'JACKPOT 🎰':(r.win?'WIN ✅':'LOSS 💔');const cls=r.jackpot?'jackpot':(r.win?'win':'loss');return `<tr><td>${r.period}</td><td><b>${r.pred} · ${r.source}</b></td><td><b>${r.actual}</b></td><td class="${cls}">${result}</td></tr>`}).join(''):'<tr><td colspan="4" class="history-empty">No settled results yet — history appears after the next result.</td></tr>';
+}
+function renderTables(){ renderMain(); }
+function processEngine(e,list){
+ if(!list.length)return;
+ const latest=list[0],nums=list.map(x=>x.number);
+ // Evaluate the prior signal only after the feed has advanced beyond its target issue.
+ if(e.pred?.offline){e.pred=null;}
+ if(e.pred && latest.issue!==e.pred.sourceIssue && latest.issue===e.pred.period){
+   const actual=size(latest.number),actualColor=[0,2,4,6,8].includes(latest.number)?'RED':'GREEN',numberHit=e.pred.nums.includes(latest.number),hit=(e.id==='ghost'?(actualColor===e.pred.color||actual===e.pred.size):actual===e.pred.size)||numberHit;
+   if(hit){e.wins++;e.losses=0;e.lossStreak=0;}else{e.lossCount++;e.losses=Math.min(3,e.losses+1);e.lossStreak=(e.lossStreak||0)+1;}
+   e.history.unshift({time:Date.now(),period:latest.issue,pred:e.pred.size,predNums:[...e.pred.nums],actual:(e.id==='ghost'?actualColor:actual),actualNum:latest.number,win:hit,jackpot:numberHit,source:e.name,lossesAfter:e.losses});
+   e.history=e.history.slice(0,30);
+   // Only the hack locked for this target period controls the visible WIN/LOSS history.
+   if(lockedMainByPeriod.get(latest.issue)===e.id && !mainHistory.some(r=>r.period===latest.issue)){
+     settledMainSourceByPeriod.set(latest.issue,e.id);
+     mainHistory.unshift({period:latest.issue,pred:e.pred.size,actual:(e.id==='ghost'?actualColor:actual)+' ('+latest.number+')',win:hit,jackpot:numberHit,source:e.name});
+     mainHistory.splice(50);
+     lockedMainByPeriod.delete(latest.issue);
+   }
+   e.pred=null;
+ }
+ if(!e.pred){
+   const p=e.calc(nums,e);
+   if(Array.isArray(p.nums) && p.nums.length>1 && !['rexaa','bossbhai'].includes(e.id)) p.nums=[p.nums[0]];
+   e.pred={...p,sourceIssue:latest.issue,period:nextIssue(latest.issue)};
+   if(level(e)===4 && e.lastL4AlertPeriod!==e.pred.period){
+     e.lastL4AlertPeriod=e.pred.period;
+     level4History.unshift({time:Date.now(),source:e.name,period:e.pred.period,pred:e.pred.size,nums:[...e.pred.nums],stake:stake(e),confidence:e.pred.confidence});
+     level4History.splice(30);
+   }
+ }
+ renderEngine(e);
+}
+let cache={};
+async function poll(){
+ try{
+  const results=await Promise.all([['1m',API_1M],['30s',API_30S]].map(async([key,url])=>{
+    try{const r=await fetch(url+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const j=await r.json();const raw=j?.data?.list||j?.list||[];return [key,normList(raw)]}catch(err){return [key,null]}
+  }));
+  results.forEach(([k,v])=>{if(v&&v.length)cache[k]=v});
+  let live=0;
+  for(const e of engines){const list=cache[e.api];if(list&&list.length){processEngine(e,list);live++}}
+  // Switch hacks only after the active hack WINS. On a WIN, prefer the other hack
+  // with the most accumulated losses, and display that hack's current level/stake.
+  // A LOSS keeps the same hack for the next period. Level alerts are not guarantees.
+  const settledPeriod=cache['1m']?.[0]?.issue;
+  if(settledPeriod && settledPeriod!==lastSwitchPeriod){
+    const outcomes=engines.map(e=>({e,row:e.history.find(h=>h.period===settledPeriod)}));
+    const allSettled=outcomes.every(x=>!!x.row);
+    if(allSettled){
+      const activeId=settledMainSourceByPeriod.get(settledPeriod) || activeMainSource;
+      const activeOutcome=outcomes.find(x=>x.e.id===activeId)?.row;
+      if(activeOutcome?.win){
+        const candidates=engines.filter(e=>e.id!==activeId && (e.losses||0)>0);
+        let chosen=[...candidates].sort((a,b)=>(b.lossCount-a.lossCount)||(b.losses-a.losses)||(b.lossStreak-a.lossStreak)||a.id.localeCompare(b.id))[0] || null;
+        // If no other hack has losses yet, rotate to the next configured hack.
+        if(!chosen){
+          const activeIndex=engines.findIndex(e=>e.id===activeId);
+          chosen=engines[(activeIndex+1+engines.length)%engines.length] || null;
+        }
+        const nextTarget=nextIssue(settledPeriod);
+        if(chosen){
+          preferredSourceId=chosen.id;
+          lockedMainByPeriod.set(nextTarget,chosen.id);
+        } else {
+          preferredSourceId=null;
+          lockedMainByPeriod.delete(nextTarget);
+        }
+      }
+      // Deliberately do not switch on LOSS; switch decisions happen only after WIN.
+      lastSwitchPeriod=settledPeriod;
+    }
+  }
+  $('apiStatus').textContent=live?`LIVE · ${live}/${engines.length} engines`:'API unavailable · retrying';
+  const first=cache['1m']?.[0]||cache['30s']?.[0];if(first)$('lastResult').textContent=`${first.number} · ${size(first.number)}`;
+  renderTables();
+ }catch(err){$('apiStatus').textContent='Connection retrying…'}
+}
+
+// Main app access gate
+const APP_ACCESS_KEY='AURA-OF-SHAN';
+function unlockApp(){
+ const input=$('appAccessKey'),message=$('appKeyMessage');
+ if(input.value===APP_ACCESS_KEY){document.body.classList.add('app-unlocked');message.textContent='';input.value='';}
+ else{message.textContent='Wrong key. Please try again.';}
+}
+$('appUnlockBtn').addEventListener('click',unlockApp);
+$('appAccessKey').addEventListener('keydown',e=>{if(e.key==='Enter')unlockApp();});
+
+// Admin panel access gate
+const ADMIN_ACCESS_KEY='SHAN-PVT-910';
+const adminToggle=$('adminToggle'), adminBox=$('adminBox'), adminKey=$('adminKey');
+adminToggle.addEventListener('click',()=>{const opening=!adminBox.classList.contains('open');adminBox.classList.toggle('open',opening);adminToggle.setAttribute('aria-expanded',String(opening));if(opening)adminKey.focus();});
+$('adminHide').addEventListener('click',()=>{adminBox.classList.remove('open');adminToggle.setAttribute('aria-expanded','false');});
+function updateAdminDashboard(){
+ const api=$('apiStatus')?.textContent||'--';$('adminApiStatus').textContent=api;
+ $('adminActiveHack').textContent=$('mainTitle')?.textContent||'--';
+ $('adminPeriod').textContent=$('mainPeriod')?.textContent||'--';
+ $('adminPrediction').textContent=$('mainNumbers')?.innerText?.replace(/\s+/g,' ').trim()||'--';
+ const rows=$('adminHackRows');
+ if(rows){
+  rows.innerHTML=engines.map(e=>{
+   const pred=e.pred;
+   const side=pred?.size||'WAITING';
+   const nums=pred&&Array.isArray(pred.nums)?pred.nums.join(' / '):'--';
+   const period=pred?.period||'--';
+   const lv=level(e);
+   const sideClass=side==='BIG'?'side-big':side==='SMALL'?'side-small':'admin-wait';
+   return `<tr><td>${e.name}</td><td>LEVEL ${lv}</td><td>${period}</td><td class="${sideClass}">${side}</td><td>${nums}</td><td>${e.wins||0}</td><td>${e.lossCount||0}</td><td>${e.lossStreak||0}</td></tr>`;
+  }).join('');
+ }
+}
+function unlockAdmin(){
+ const message=$('adminMessage');
+ if(adminKey.value===ADMIN_ACCESS_KEY){message.textContent='Access granted.';message.classList.add('ok');$('adminContent').classList.add('show');updateAdminDashboard();}
+ else{message.textContent='Wrong key. Please try again.';message.classList.remove('ok');$('adminContent').classList.remove('show');}
+}
+$('adminLogin').addEventListener('click',unlockAdmin);
+adminKey.addEventListener('keydown',e=>{if(e.key==='Enter')unlockAdmin();});
+$('adminRefresh').addEventListener('click',()=>{updateAdminDashboard();if(typeof poll==='function')poll();});
+$('adminLock').addEventListener('click',()=>{adminKey.value='';$('adminContent').classList.remove('show');$('adminMessage').textContent='Admin panel locked.';$('adminMessage').classList.remove('ok');});
+setInterval(()=>{if($('adminContent').classList.contains('show'))updateAdminDashboard();},1000);
+
+renderCards();
+// Show a visible provisional prediction immediately, even if the live result API is blocked.
+// It is replaced automatically as soon as real history loads.
+const seedBase = (new Date().getMinutes() + new Date().getHours()) % 10;
+const fallbackNums = Array.from({length:30},(_,i)=>(seedBase + i*7 + Math.floor(i/3)) % 10);
+engines.forEach(e=>{
+  const p=e.calc(fallbackNums,e);
+  e.pred={...p,period:'LIVE DATA WAIT',sourceIssue:'offline',offline:true,confidence:'Provisional estimate · waiting for live feed'};
+  renderEngine(e);
+});
+renderTables();poll();setInterval(poll,2500);setInterval(renderMain,250);
+</script>
+</body></html>
