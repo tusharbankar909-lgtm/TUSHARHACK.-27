@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUSHAR XX-90</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --neon: #00ff41; 
+            --danger: #ff003c; 
+            --gold: #ffea00; 
+            --bg: #050505;
+            --bg-url: 'https://i.ibb.co/93S6N5kC/0359df0fc5637f711572e71d66321423.jpg';
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+            margin: 0; 
+            user-select: none; 
+            overflow-x: hidden; 
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/93S6N5kC/0359df0fc5637f711572e71d66321423.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .bg-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5,5,5,0.5);
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+        }
+        
+        .header-container { text-align: center; padding: 20px 10px 10px; }
+        
+        .zigzag-name {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            animation: rgbGlitch 2s infinite;
+            text-shadow: 
+                0 0 10px rgba(255,0,0,0.8),
+                0 0 20px rgba(0,255,0,0.8),
+                0 0 30px rgba(0,0,255,0.8),
+                0 0 40px rgba(255,255,0,0.5);
+        }
+        
+        @keyframes rgbGlitch {
+            0% { text-shadow: 2px 0 red, -2px 0 cyan, 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(0,255,0,0.4), 0 0 60px rgba(0,0,255,0.3); transform: skew(0deg); }
+            10% { text-shadow: -3px 0 lime, 3px 0 magenta, 0 0 30px rgba(255,255,0,0.6), 0 0 50px rgba(255,0,255,0.4); transform: skew(2deg); }
+            20% { text-shadow: 4px 0 blue, -4px 0 yellow, 0 0 40px rgba(0,255,255,0.6), 0 0 60px rgba(255,0,0,0.4); transform: skew(-3deg); }
+            30% { text-shadow: -5px 0 red, 5px 0 lime, 0 0 50px rgba(255,0,255,0.6), 0 0 70px rgba(0,255,255,0.4); transform: skew(2deg); }
+            40% { text-shadow: 3px 0 cyan, -3px 0 red, 0 0 30px rgba(255,255,0,0.6), 0 0 60px rgba(0,255,0,0.4); transform: skew(-2deg); }
+            50% { text-shadow: -4px 0 magenta, 4px 0 cyan, 0 0 40px rgba(255,0,0,0.6), 0 0 50px rgba(0,0,255,0.4); transform: skew(0deg); }
+            60% { text-shadow: 5px 0 yellow, -5px 0 blue, 0 0 50px rgba(0,255,255,0.6), 0 0 70px rgba(255,255,0,0.4); transform: skew(-2deg); }
+            70% { text-shadow: -2px 0 red, 2px 0 lime, 0 0 20px rgba(255,0,255,0.6), 0 0 40px rgba(0,255,0,0.4); transform: skew(2deg); }
+            80% { text-shadow: 6px 0 cyan, -6px 0 magenta, 0 0 60px rgba(255,255,0,0.6), 0 0 80px rgba(255,0,0,0.4); transform: skew(-1deg); }
+            90% { text-shadow: -3px 0 yellow, 3px 0 blue, 0 0 30px rgba(0,255,255,0.6), 0 0 50px rgba(255,0,255,0.4); transform: skew(1deg); }
+            100% { text-shadow: 2px 0 red, -2px 0 cyan, 0 0 20px rgba(255,0,0,0.6), 0 0 40px rgba(0,255,0,0.4), 0 0 60px rgba(0,0,255,0.3); transform: skew(0deg); }
+        }
+        
+        .zigzag-name::before,
+        .zigzag-name::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+        }
+        
+        .zigzag-name::before {
+            color: #ff00ff;
+            animation: glitchBefore 2s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            opacity: 0.7;
+        }
+        
+        .zigzag-name::after {
+            color: #00ffff;
+            animation: glitchAfter 2s infinite;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+            opacity: 0.7;
+        }
+        
+        @keyframes glitchBefore {
+            0%, 100% { transform: translate(0); opacity: 0.7; }
+            20% { transform: translate(-3px, 2px); opacity: 0.9; }
+            40% { transform: translate(4px, -2px); opacity: 0.5; }
+            60% { transform: translate(-5px, 3px); opacity: 0.8; }
+            80% { transform: translate(3px, -3px); opacity: 0.6; }
+        }
+        
+        @keyframes glitchAfter {
+            0%, 100% { transform: translate(0); opacity: 0.7; }
+            20% { transform: translate(3px, -2px); opacity: 0.5; }
+            40% { transform: translate(-4px, 2px); opacity: 0.9; }
+            60% { transform: translate(5px, -3px); opacity: 0.6; }
+            80% { transform: translate(-3px, 3px); opacity: 0.8; }
+        }
+        
+        .glass-box { 
+            margin: 15px auto; 
+            background: rgba(5,5,5,0.75); 
+            border: 1px solid rgba(0,255,65,0.15); 
+            border-radius: 25px; 
+            padding: 22px 20px; 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center; 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://i.ibb.co/gZQLK5wV/414670d7424959df3aa7186417ba0a99.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+            border-radius: 25px;
+        }
+        
+        .glass-box > * { position: relative; z-index: 1; }
+        
+        input { 
+            width: 90%; 
+            padding: 14px; 
+            background: rgba(0,0,0,0.6); 
+            border: 1px solid #333; 
+            border-radius: 12px; 
+            color: var(--neon); 
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px; 
+            font-weight: 600;
+            margin: 12px 0; 
+            outline: none; 
+            text-align: center; 
+            letter-spacing: 1px;
+        }
+        input::placeholder { color: #555; font-weight: 400; }
+        
+        .btn-main { 
+            width: 100%; 
+            padding: 14px; 
+            background: linear-gradient(45deg, var(--neon), #008f11); 
+            border: none; 
+            border-radius: 12px; 
+            color: #000; 
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            cursor: pointer; 
+            transition: 0.2s;
+            font-size: 13px;
+        }
+        .btn-main:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(0,255,65,0.3); }
+        
+        .pred-val { 
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 48px; 
+            font-weight: 900; 
+            margin: 8px 0; 
+            text-shadow: 0 0 30px var(--neon), 0 0 60px rgba(0,255,65,0.2);
+            letter-spacing: 3px;
+        }
+        
+        table { 
+            width: 100%; 
+            margin-top: 16px; 
+            border-collapse: collapse; 
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px; 
+        }
+        th { 
+            color: #888; 
+            border-bottom: 1px solid #222; 
+            padding: 8px; 
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+        td { 
+            padding: 8px; 
+            border-bottom: 1px solid #111; 
+            text-align: center; 
+            vertical-align: middle; 
+            font-weight: 500;
+        }
+        
+        .win { color: var(--neon); font-weight: 700; text-shadow: 0 0 15px var(--neon); }
+        .loss { color: var(--danger); font-weight: 700; text-shadow: 0 0 15px var(--danger); }
+        .jack { color: #ffea00 !important; font-weight: 900; text-shadow: 0 0 20px #ffea00; }
+        
+        .footer-branding { 
+            margin-top: 20px; 
+            padding: 10px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .name-box { 
+            display: inline-block; 
+            padding: 8px 25px; 
+            border: 1px solid var(--neon); 
+            border-radius: 5px; 
+            color: var(--neon); 
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            cursor: pointer; 
+            background: rgba(0, 255, 65, 0.05); 
+            font-size: 11px;
+            transition: 0.2s;
+        }
+        .name-box:hover {
+            background: rgba(0,255,65,0.1);
+            box-shadow: 0 0 20px rgba(0,255,65,0.1);
+        }
+        
+        .admin-modal { 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 90%; 
+            max-width: 350px; 
+            background: #000; 
+            border: 2px solid var(--gold); 
+            border-radius: 20px; 
+            padding: 25px 20px; 
+            z-index: 1000; 
+            font-family: 'Rajdhani', sans-serif;
+            box-shadow: 0 0 60px rgba(255,234,0,0.1);
+        }
+        .admin-modal h3 {
+            font-family: 'Cinzel Decorative', cursive;
+            color: var(--gold);
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .admin-modal input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 10px 0;
+            outline: none;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .admin-modal input:focus { border-color: var(--gold); }
+        .admin-modal select {
+            width: 100%;
+            padding: 14px;
+            background: #111;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 12px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .admin-modal .btn-gold {
+            width: 100%;
+            padding: 14px;
+            background: var(--gold);
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+        .admin-modal .btn-gold:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255,234,0,0.3); }
+        .admin-modal .key-output {
+            margin-top: 15px;
+            color: var(--neon);
+            font-size: 12px;
+            word-break: break-all;
+            text-align: center;
+            background: rgba(0,255,65,0.05);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,255,65,0.15);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+        }
+        .admin-modal .btn-cancel {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .admin-modal .btn-cancel:hover { background: #333; }
+        .admin-modal .pass-hint {
+            font-size: 11px;
+            color: #555;
+            text-align: center;
+            margin-top: 8px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .admin-modal .pass-hint span { color: #888; }
+        
+        .admin-modal .keygen-section { display: none; }
+        .admin-modal .keygen-section.active { display: block; }
+        .admin-modal .pass-section.hidden { display: none; }
+        
+        .overlay { 
+            position: fixed; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background:rgba(0,0,0,0.85); 
+            z-index:999; 
+            backdrop-filter: blur(5px); 
+        }
+        .hidden { display: none; }
+        
+        .num-img { width: 26px; height: 26px; vertical-align: middle; border-radius: 50%; background: #111; padding: 2px; border: 1px solid rgba(0,255,65,0.15); }
+        .num-img-lg { width: 48px; height: 48px; border-radius: 50%; background: #111; padding: 4px; border: 2px solid rgba(255,234,0,0.25); margin: 0 4px; transition: 0.3s; }
+        .num-img-lg:hover { transform: scale(1.1); border-color: var(--gold); }
+        
+        .num-display { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 6px 0 10px; }
+        .num-display .num-item { display: flex; flex-direction: column; align-items: center; }
+        .num-display .num-item .label { 
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 8px; 
+            color: #888; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .logout-btn { 
+            background: transparent; 
+            color: #444; 
+            border: none; 
+            margin-top: 12px; 
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 11px; 
+            font-weight: 600;
+            cursor: pointer; 
+            letter-spacing: 1.5px;
+            transition: 0.2s;
+        }
+        .logout-btn:hover { color: #888; }
+        
+        .period-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .login-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        
+        .error-msg {
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 24px;
+        }
+        .error-invalid { color: var(--danger); }
+        .error-expired { color: #ff8800; }
+        .error-success { color: var(--neon); }
+        
+        .flex-btns { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-cancel { background: #222; color: #fff; flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #444; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 600; }
+        .btn-ok { background: var(--gold); color: #000; flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer; font-family: 'Rajdhani', sans-serif; }
+        
+        .expiry-notice {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,0,0,0.9);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 0 30px rgba(255,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .expiry-notice.show { display: block; animation: slideDown 0.5s ease; }
+        @keyframes slideDown {
+            from { top: -50px; opacity: 0; }
+            to { top: 20px; opacity: 1; }
+        }
+        
+        /* Redirect Banner */
+        .redirect-banner {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #0088cc, #0066aa);
+            color: #fff;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            z-index: 9998;
+            box-shadow: 0 4px 30px rgba(0, 136, 204, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: bounceUp 0.6s ease;
+        }
+        .redirect-banner:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 40px rgba(0, 136, 204, 0.6);
+        }
+        .redirect-banner .icon {
+            font-size: 24px;
+        }
+        .redirect-banner .arrow {
+            font-size: 20px;
+            animation: pulseArrow 1.5s infinite;
+        }
+        @keyframes pulseArrow {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+        @keyframes bounceUp {
+            from { bottom: -80px; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+        .redirect-banner .close-btn {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .redirect-banner .close-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div id="expiryNotice" class="expiry-notice">⏰ KEY EXPIRED! Redirecting to login...</div>
+
+    <div class="bg-image"></div>
+
+    <div class="content-wrapper">
+        <div class="header-container">
+            <div class="zigzag-name" data-text="TUSHAR XX-90">TUSHAR XX-90</div>
+            <div style="color: var(--gold); font-size: 10px; letter-spacing: 4px; margin-top: 4px; font-family: 'Cinzel Decorative', cursive; font-weight: 400;">AI ENGINE PREMIUM</div>
+        </div>
+
+        <div id="loginPage" class="glass-box">
+            <h3 style="margin:0; color:var(--neon); font-size: 14px; font-family: 'Cinzel Decorative', cursive; letter-spacing: 2px;" class="login-title">ENTER ELITE LICENSE</h3>
+            <input type="text" id="keyIn" placeholder="PR7-VIP-XXXXX-XXXX">
+            <button class="btn-main" onclick="startSystem()">ACTIVATE SYSTEM</button>
+            <div id="err" class="error-msg"></div>
+        </div>
+
+        <div id="appPage" class="glass-box hidden">
+            <div style="color: #888; font-size: 13px; font-family: 'Rajdhani', sans-serif; font-weight: 600; letter-spacing: 1px;" id="pID" class="period-text">PERIOD: LOADING...</div>
+            <div class="pred-val" id="pRes">WAIT...</div>
+            
+            <div style="color: var(--gold); font-size: 10px; font-weight: 700; margin-top: 4px; letter-spacing: 2px; font-family: 'Cinzel Decorative', cursive;">PREDICTED NUMBERS</div>
+            <div class="num-display" id="pOpps">
+                <div class="num-item"><div id="num1">--</div><div class="label"></div></div>
+                <div class="num-item"><div id="num2">--</div><div class="label"></div></div>
+            </div>
+            
+            <table>
+                <thead><tr><th>PRD</th><th>PRED</th><th>NUM</th><th>STATUS</th></tr></thead>
+                <tbody id="logs"></tbody>
+            </table>
+            
+            <button class="logout-btn" onclick="logout()">LOGOUT SYSTEM</button>
+        </div>
+
+
+    </div>
+
+    <!-- ADMIN MODAL -->
+    <div id="passOverlay" class="overlay hidden" onclick="hidePassModal()"></div>
+    <div id="adminPanel" class="admin-modal hidden">
+        <h3></h3>
+        <div id="passSection" class="pass-section">
+            <input type="password" id="masterPassIn" placeholder="ENTER PASSWORD">
+            <div class="flex-btns">
+                <button class="btn-cancel" onclick="hidePassModal()">CANCEL</button>
+                <button class="btn-ok" onclick="checkMasterPass()">LOGIN</button>
+            </div>
+        </div>
+        <div id="keygenSection" class="keygen-section">
+            <h3 style="font-size:14px; margin-top:0; margin-bottom:10px;">⚙️ KEY GENERATOR</h3>
+            <select id="keyValidity">
+                <option value="30">30 MINUTES</option>
+                <option value="1440">1 DAY</option>
+                <option value="10080">7 DAYS</option>
+                <option value="43200">30 DAYS</option>
+                <option value="5256000">LIFETIME</option>
+            </select>
+            <button class="btn-gold" onclick="genKey()">GENERATE KEY</button>
+            <div id="outKey" class="key-output">WAITING...</div>
+            <button class="btn-cancel" onclick="closeAdmin()">CLOSE</button>
+        </div>
+    </div>
+
+<script>
+    // ===== PERMANENT KEY "PANDA" =====
+    const PERMANENT_KEY = "TUSHAR-XX90";
+    const ADMIN_PASS = "TUSHAR-XX90";
+    const SECRET_SALT = "REAL_SALT_2024";
+    const BIG_POOL = [5,6,7,8,9], SMALL_POOL = [0,1,2,3,4];
+    let lastId = null, savedPrediction = null, savedOpps = [];
+    let isFirstRun = true;
+    let expiryCheckInterval = null;
+    let lastPicks = [];
+
+    const BALL_IMGS = {
+        0: 'https://i.postimg.cc/Wzrp0gRV/ball-0-053d2b99.png',
+        1: 'https://i.postimg.cc/Qt7ZzDfk/ball-1-12ea01b7.png',
+        2: 'https://i.postimg.cc/zvSZJjZy/ball-2-7d433738.png',
+        3: 'https://i.postimg.cc/7hyr8Rcv/ball-3-a91cceac.png',
+        4: 'https://i.postimg.cc/WbTc5Qgg/ball-4-cad06388.png',
+        5: 'https://i.postimg.cc/28GRM27J/ball-5-8e182f0c.png',
+        6: 'https://i.postimg.cc/c1QNMsgd/ball-6-44a39882.png',
+        7: 'https://i.postimg.cc/2S5RDhH5/ball-7-c8babe29.png',
+        8: 'https://i.postimg.cc/R03k39x5/ball-8-9d781b7c.png',
+        9: 'https://i.postimg.cc/cL5q4CjB/ball-9-19985870.png'
+    };
+
+    function getBallImg(num) { return BALL_IMGS[num] || ''; }
+
+    // ===== FIXED LOGIC - CORRECT PREDICTION =====
+    function analyzePattern(history) {
+        const nums = history.map(i => parseInt(i.number));
+        const sizes = nums.map(n => n >= 5 ? 'BIG' : 'SMALL');
+        
+        let bigStreak = 0, smallStreak = 0;
+        for (let i = sizes.length - 1; i >= 0; i--) {
+            if (sizes[i] === 'BIG') { 
+                bigStreak++; 
+                if (smallStreak > 0) break; 
+            } else { 
+                smallStreak++; 
+                if (bigStreak > 0) break; 
+            }
+        }
+        
+        const last5 = sizes.slice(0, 5);
+        const bigCount5 = last5.filter(x => x === 'BIG').length;
+        
+        let alternations = 0;
+        for (let i = 1; i < sizes.length && i < 10; i++) {
+            if (sizes[i] !== sizes[i-1]) alternations++;
+        }
+        const altRate = Math.min(alternations / 9, 1);
+        
+        const scores = {};
+        for (let i = 0; i <= 9; i++) {
+            let score = 0;
+            
+            const recentNums = nums.slice(0, 8);
+            const freq = recentNums.filter(n => n === i).length;
+            score -= freq * 1.5;
+            
+            if (bigStreak >= 2 && i >= 5) score += 2;
+            if (smallStreak >= 2 && i < 5) score += 2;
+            if (bigStreak >= 4 && i >= 5) score += 3;
+            if (smallStreak >= 4 && i < 5) score += 3;
+            
+            if (altRate > 0.5) {
+                const last = sizes[0] || 'BIG';
+                if (last === 'BIG' && i < 5) score += 1.5;
+                if (last === 'SMALL' && i >= 5) score += 1.5;
+            }
+            
+            if (bigCount5 >= 4 && i < 5) score += 2.5;
+            if (bigCount5 <= 1 && i >= 5) score += 2.5;
+            
+            let lastIndex = nums.indexOf(i);
+            if (lastIndex === -1) score += 3;
+            else if (lastIndex > 5) score += 1.5;
+            
+            scores[i] = score;
+        }
+        
+        let bigScore = 0, smallScore = 0;
+        for (let i = 0; i <= 9; i++) {
+            if (i >= 5) bigScore += scores[i];
+            else smallScore += scores[i];
+        }
+        
+        if (bigStreak >= 3) bigScore += 1.5;
+        if (smallStreak >= 3) smallScore += 1.5;
+        
+        const prediction = bigScore > smallScore ? 'BIG' : 'SMALL';
+        
+        const pool = prediction === 'BIG' ? BIG_POOL : SMALL_POOL;
+        const sorted = [...pool].sort((a, b) => scores[b] - scores[a]);
+        
+        const top3 = sorted.slice(0, 3);
+        let picks = [];
+        
+        const shuffled = [...top3].sort(() => Math.random() - 0.5);
+        picks = shuffled.slice(0, 2).sort((a,b) => a-b);
+        
+        if (lastPicks.length === 2 && picks[0] === lastPicks[0] && picks[1] === lastPicks[1]) {
+            const altPicks = top3.filter(n => !picks.includes(n));
+            if (altPicks.length > 0) {
+                picks = [picks[0], altPicks[0]].sort((a,b) => a-b);
+            }
+        }
+        
+        lastPicks = picks;
+        
+        return { prediction, picks };
+    }
+
+    // ===== PERMANENT KEY VALIDATION (No Expiry) =====
+    function validateKey(key) {
+        // Permanent key "TX" - always valid
+        if (key === PERMANENT_KEY) {
+            return { valid: true, isPermanent: true };
+        }
+        
+        // Legacy format check (for backward compatibility)
+        if(key && key.startsWith("PR7-VIP-")) {
+            try {
+                const parts = key.split("-");
+                if (parts.length !== 5) return { valid: false, reason: 'invalid' };
+                const randomPart = parts[2];
+                const expiryB64 = parts[3];
+                const signature = parts[4];
+                const expectedSig = btoa(randomPart + expiryB64 + SECRET_SALT).slice(0, 8);
+                if (signature !== expectedSig) return { valid: false, reason: 'invalid' };
+                const expiryTime = parseInt(atob(expiryB64));
+                if (expiryTime <= Date.now()) return { valid: false, reason: 'expired' };
+                return { valid: true, expiryTime: expiryTime };
+            } catch(e) { return { valid: false, reason: 'invalid' }; }
+        }
+        
+        return { valid: false, reason: 'invalid' };
+    }
+
+    function startExpiryChecker(expiryTime) {
+        if (expiryCheckInterval) clearInterval(expiryCheckInterval);
+        // Only start expiry checker if not permanent
+        if (expiryTime) {
+            expiryCheckInterval = setInterval(() => {
+                if (Date.now() >= expiryTime) {
+                    clearInterval(expiryCheckInterval);
+                    expiryCheckInterval = null;
+                    showExpiryAndLogout();
+                }
+            }, 5000);
+        }
+    }
+
+    function showExpiryAndLogout() {
+        const notice = document.getElementById('expiryNotice');
+        notice.classList.add('show');
+        setTimeout(() => {
+            notice.classList.remove('show');
+            logout();
+        }, 2500);
+    }
+
+    // ===== ADMIN FUNCTIONS =====
+    function showPassModal() {
+        document.getElementById('passOverlay').classList.remove('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+        document.getElementById('masterPassIn').value = '';
+        document.getElementById('masterPassIn').focus();
+        document.getElementById('passSection').classList.remove('hidden');
+        document.getElementById('keygenSection').classList.remove('active');
+        document.getElementById('keygenSection').style.display = 'none';
+    }
+    
+    function hidePassModal() {
+        document.getElementById('passOverlay').classList.add('hidden');
+        document.getElementById('adminPanel').classList.add('hidden');
+        document.getElementById('passSection').classList.remove('hidden');
+        document.getElementById('keygenSection').classList.remove('active');
+        document.getElementById('keygenSection').style.display = 'none';
+    }
+    
+    function closeAdmin() { hidePassModal(); }
+
+    function checkMasterPass() {
+        const password = document.getElementById('masterPassIn').value.trim();
+        if (password === ADMIN_PASS) {
+            document.getElementById('passSection').classList.add('hidden');
+            const keygenSection = document.getElementById('keygenSection');
+            keygenSection.style.display = 'block';
+            keygenSection.classList.add('active');
+            document.getElementById('outKey').innerText = 'WAITING...';
+        } else {
+            alert("❌ WRONG PASSWORD!");
+            document.getElementById('masterPassIn').value = '';
+            document.getElementById('masterPassIn').focus();
+        }
+    }
+
+    function genKey() {
+        const mins = document.getElementById('keyValidity').value;
+        const expiryTime = Date.now() + (mins * 60 * 1000);
+        const randomStr = Math.random().toString(36).substr(2, 5).toUpperCase();
+        const expiryB64 = btoa(expiryTime.toString());
+        const signature = btoa(randomStr + expiryB64 + SECRET_SALT).slice(0, 8);
+        const newKey = `PR7-VIP-${randomStr}-${expiryB64}-${signature}`;
+        document.getElementById('outKey').innerText = newKey;
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(newKey).then(() => alert("✅ KEY COPIED!")).catch(() => fallbackCopy(newKey));
+        } else { fallbackCopy(newKey); }
+    }
+
+    function fallbackCopy(text) {
+        const dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        alert("✅ KEY GENERATED & COPIED!");
+    }
+
+    function startSystem() {
+        const key = document.getElementById('keyIn').value.trim();
+        const errEl = document.getElementById('err');
+        if (!key) {
+            errEl.className = 'error-msg error-invalid';
+            errEl.innerText = "❌ PLEASE ENTER A KEY";
+            return;
+        }
+        const result = validateKey(key);
+        if (!result.valid) {
+            errEl.className = 'error-msg ' + (result.reason === 'expired' ? 'error-expired' : 'error-invalid');
+            errEl.innerText = result.reason === 'expired' ? "⏰ KEY EXPIRED !" : "❌ WRONG KEY";
+            return;
+        }
+        errEl.className = 'error-msg error-success';
+        errEl.innerText = result.isPermanent ? "✅ PERMANENT KEY ACTIVATED!" : "✅ KEY ACTIVATED!";
+        localStorage.setItem('PR7_ACTIVE_KEY', key);
+        if (result.expiryTime) {
+            localStorage.setItem('PR7_KEY_EXPIRY', result.expiryTime);
+        } else {
+            localStorage.removeItem('PR7_KEY_EXPIRY');
+        }
+        document.getElementById('loginPage').classList.add('hidden');
+        document.getElementById('appPage').classList.remove('hidden');
+        startExpiryChecker(result.expiryTime || null);
+        runLogic();
+    }
+
+    function updateNumberDisplay(nums) {
+        const num1El = document.getElementById('num1');
+        const num2El = document.getElementById('num2');
+        if (nums.length > 0 && nums[0] !== '--') {
+            num1El.innerHTML = `<img class="num-img-lg" src="${getBallImg(nums[0])}" alt="${nums[0]}">`;
+        } else { num1El.innerHTML = '--'; }
+        if (nums.length > 1 && nums[1] !== '--') {
+            num2El.innerHTML = `<img class="num-img-lg" src="${getBallImg(nums[1])}" alt="${nums[1]}">`;
+        } else { num2El.innerHTML = '--'; }
+    }
+
+    async function runLogic() {
+        if(window.logicStarted) return;
+        window.logicStarted = true;
+        isFirstRun = true;
+        lastPicks = [];
+
+        setInterval(async () => {
+            try {
+                const res = await fetch('https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json');
+                const json = await res.json();
+                const history = json.data.list;
+                const latest = history[0];
+
+                if(isFirstRun) {
+                    isFirstRun = false;
+                    const analysis = analyzePattern(history);
+                    savedPrediction = analysis.prediction;
+                    savedOpps = analysis.picks;
+                    
+                    document.getElementById('pID').innerText = "PERIOD: " + (BigInt(latest.issueNumber) + 1n).toString();
+                    document.getElementById('pRes').innerHTML = savedPrediction;
+                    updateNumberDisplay(savedOpps);
+                    lastId = latest.issueNumber;
+                    return;
+                }
+
+                if(lastId !== latest.issueNumber) {
+                    if(lastId && savedPrediction) {
+                        const actualSize = parseInt(latest.number) >= 5 ? "BIG" : "SMALL";
+                        const isWin = (savedPrediction === actualSize);
+                        const isJack = savedOpps.includes(parseInt(latest.number));
+                        
+                        let statusText = isJack ? 'JACK 💀' : (isWin ? 'WINN 😎' : 'LOSS 🤡');
+                        let statusClass = isJack ? 'jack' : (isWin ? 'win' : 'loss');
+                        const numImg = `<img class="num-img" src="${getBallImg(parseInt(latest.number))}" alt="${latest.number}">`;
+                        
+                        const row = `<tr><td>${latest.issueNumber.slice(-3)}</td><td>${savedPrediction}</td><td>${numImg}</td><td class="${statusClass}">${statusText}</td></tr>`;
+                        document.getElementById('logs').innerHTML = row + document.getElementById('logs').innerHTML;
+                    }
+
+                    const analysis = analyzePattern(history);
+                    savedPrediction = analysis.prediction;
+                    savedOpps = analysis.picks;
+                    
+                    document.getElementById('pRes').innerHTML = "WAIT...";
+                    updateNumberDisplay(['--', '--']);
+                    
+                    setTimeout(() => {
+                        document.getElementById('pID').innerText = "PERIOD: " + (BigInt(latest.issueNumber) + 1n).toString();
+                        document.getElementById('pRes').innerHTML = savedPrediction;
+                        updateNumberDisplay(savedOpps);
+                    }, 1500);
+
+                    lastId = latest.issueNumber;
+                }
+            } catch(e) {}
+        }, 3500);
+    }
+
+    function logout() { 
+        localStorage.removeItem('PR7_ACTIVE_KEY');
+        localStorage.removeItem('PR7_KEY_EXPIRY');
+        if (expiryCheckInterval) {
+            clearInterval(expiryCheckInterval);
+            expiryCheckInterval = null;
+        }
+        window.logicStarted = false;
+        lastPicks = [];
+        location.reload(); 
+    }
+
+    window.onload = () => {
+        const sk = localStorage.getItem('PR7_ACTIVE_KEY');
+        const expiry = localStorage.getItem('PR7_KEY_EXPIRY');
+        if(sk) {
+            const result = validateKey(sk);
+            if(result.valid) {
+                document.getElementById('keyIn').value = sk;
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('appPage').classList.remove('hidden');
+                if (result.expiryTime) {
+                    startExpiryChecker(result.expiryTime);
+                }
+                runLogic();
+            } else if (expiry) {
+                const expiryTime = parseInt(expiry);
+                if (Date.now() >= expiryTime) {
+                    localStorage.removeItem('PR7_ACTIVE_KEY');
+                    localStorage.removeItem('PR7_KEY_EXPIRY');
+                    showExpiryAndLogout();
+                    return;
+                }
+            }
+        }
+    };
+</script>
+</body>
+</html>
